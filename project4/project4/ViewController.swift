@@ -30,11 +30,12 @@ class ViewController: UIViewController, WKNavigationDelegate {
         
         let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let refresh = UIBarButtonItem(barButtonSystemItem: .refresh, target: webView, action: #selector(webView.reload))
-        
+        let back = UIBarButtonItem(title: "<-", style: .done, target: webView, action: #selector(webView.goBack))
+        let forward = UIBarButtonItem(title: "->", style: .done, target: webView, action: #selector(webView.goForward))
         progressView = UIProgressView(progressViewStyle: .default)
         progressView.sizeToFit()
         let progressButton = UIBarButtonItem(customView: progressView)
-        toolbarItems = [progressButton, spacer, refresh]
+        toolbarItems = [progressButton, spacer, refresh, back, forward]
         navigationController?.isToolbarHidden = false
         webView.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: .new, context: nil)
         
