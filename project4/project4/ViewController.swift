@@ -14,6 +14,7 @@ class ViewController: UIViewController, WKNavigationDelegate {
     var webView: WKWebView!
     var progressView: UIProgressView!
     var websites = ["apple.com", "hackingwithswift.com"]
+    var notAllowed = ["microsoft.com", "google.com"]
     override func loadView() {
         webView = WKWebView()
         webView.navigationDelegate = self
@@ -48,10 +49,23 @@ class ViewController: UIViewController, WKNavigationDelegate {
         for website in websites {
             ac.addAction(UIAlertAction(title: website, style: .default, handler: openPage))
         }
-            
+        
+        for cantVisit in notAllowed {
+            ac.addAction(UIAlertAction(title: cantVisit, style: .default, handler: blocked))
+        }
+        
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         ac.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
         present(ac, animated: true)
+    }
+    
+    func blocked(action: UIAlertAction){
+        for _ in notAllowed {
+       let ac = UIAlertController(title: action.title, message: "\(action.title!) is blocked", preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "OK", style: .cancel)
+        ac.addAction(cancel)
+        present(ac, animated: true)
+    }
     }
     
     func openPage(action: UIAlertAction) {
