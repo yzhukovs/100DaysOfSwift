@@ -10,16 +10,14 @@ import UIKit
 import WebKit
 
 class ViewController: UIViewController, WKNavigationDelegate {
-
-    var webView: WKWebView!
+    var vc = TableViewController()
+    var webView = WKWebView()
     var progressView: UIProgressView!
-    var websites = ["apple.com", "hackingwithswift.com"]
-    var notAllowed = ["microsoft.com", "google.com"]
+    //    var websites = ["apple.com", "hackingwithswift.com"]
+    //    var notAllowed = ["microsoft.com", "google.com"]
     override func loadView() {
-        webView = WKWebView()
         webView.navigationDelegate = self
         view = webView
-   
     }
     
     
@@ -39,19 +37,19 @@ class ViewController: UIViewController, WKNavigationDelegate {
         navigationController?.isToolbarHidden = false
         webView.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: .new, context: nil)
         
-        let url = URL(string: "https://" + websites[0])!
-        webView.load(URLRequest(url: url))
+//        let url = URL(string: "https://" + vc.websites[0])!
+//        webView.load(URLRequest(url: url))
         webView.allowsBackForwardNavigationGestures = true
         // Do any additional setup after loading the view.
     }
-
+    
     @objc func openTapped(){
         let ac = UIAlertController(title: "Open page...", message: nil, preferredStyle: .actionSheet)
-        for website in websites {
+        for website in vc.websites {
             ac.addAction(UIAlertAction(title: website, style: .default, handler: openPage))
         }
         
-        for cantVisit in notAllowed {
+        for cantVisit in vc.notAllowed {
             ac.addAction(UIAlertAction(title: cantVisit, style: .default, handler: blocked))
         }
         
@@ -61,12 +59,12 @@ class ViewController: UIViewController, WKNavigationDelegate {
     }
     
     func blocked(action: UIAlertAction){
-        for _ in notAllowed {
-       let ac = UIAlertController(title: action.title, message: "\(action.title!) is blocked", preferredStyle: .alert)
-        let cancel = UIAlertAction(title: "OK", style: .cancel)
-        ac.addAction(cancel)
-        present(ac, animated: true)
-    }
+        for _ in vc.notAllowed {
+            let ac = UIAlertController(title: action.title, message: "\(action.title!) is blocked", preferredStyle: .alert)
+            let cancel = UIAlertAction(title: "OK", style: .cancel)
+            ac.addAction(cancel)
+            present(ac, animated: true)
+        }
     }
     
     func openPage(action: UIAlertAction) {
@@ -89,7 +87,7 @@ class ViewController: UIViewController, WKNavigationDelegate {
         let url = navigationAction.request.url
         
         if let host = url?.host {
-            for website in websites {
+            for website in vc.websites {
                 if host.contains(website) {
                     decisionHandler(.allow)
                     return
