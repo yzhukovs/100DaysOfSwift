@@ -10,13 +10,28 @@ import UIKit
 
 class ViewController: UITableViewController {
     
-    var petitions = [String]()
+    var petitions = [Petition]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        let urlString = "https://api.whitehouse.gov/v1/petitions.json?limit=100"
+        
+        if let url = URL(string: urlString) {
+            if let data = try? Data(contentsOf: url) {
+                parse(json: data)
+            }
+        }
     }
 
+    func parse(json: Data) {
+        let decoder = JSONDecoder()
+        
+        if let jsonPetitions = try? decoder.decode(Petitions.self, from: json) {
+            petitions = jsonPetitions.results
+            tableView.reloadData()
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         petitions.count
     }
