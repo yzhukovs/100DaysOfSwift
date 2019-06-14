@@ -13,6 +13,7 @@
 		44114CAD22B437DC004831FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44114CAB22B437DC004831FA /* Main.storyboard */; };
 		44114CAF22B437DE004831FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44114CAE22B437DE004831FA /* Assets.xcassets */; };
 		44114CB222B437DE004831FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44114CB022B437DE004831FA /* LaunchScreen.storyboard */; };
+		44114CBA22B44872004831FA /* Petition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44114CB922B44872004831FA /* Petition.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		44114CAE22B437DE004831FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44114CB122B437DE004831FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		44114CB322B437DE004831FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		44114CB922B44872004831FA /* Petition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Petition.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				44114CA522B437DC004831FA /* AppDelegate.swift */,
 				44114CA722B437DC004831FA /* SceneDelegate.swift */,
 				44114CA922B437DC004831FA /* ViewController.swift */,
+				44114CB922B44872004831FA /* Petition.swift */,
 				44114CAB22B437DC004831FA /* Main.storyboard */,
 				44114CAE22B437DE004831FA /* Assets.xcassets */,
 				44114CB022B437DE004831FA /* LaunchScreen.storyboard */,
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				44114CAA22B437DC004831FA /* ViewController.swift in Sources */,
+				44114CBA22B44872004831FA /* Petition.swift in Sources */,
 				44114CA622B437DC004831FA /* AppDelegate.swift in Sources */,
 				44114CA822B437DC004831FA /* SceneDelegate.swift in Sources */,
 			);
