@@ -14,6 +14,9 @@ class ViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+       
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Credits", style: .plain, target: self, action: #selector(credits))
         let urlString: String
         if navigationController?.tabBarItem.tag == 0 {
         urlString = "https://api.whitehouse.gov/v1/petitions.json?limit=100"
@@ -33,6 +36,13 @@ class ViewController: UITableViewController {
         }
     }
 
+    
+    @objc func credits(){
+        let ac = UIAlertController(title: "Credits", message: "The data is taken from Whitehouse Petitions", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK!", style: .default))
+        present(ac, animated: true)
+        
+    }
     
     func showError(){
         let ac = UIAlertController(title: "Loading Error", message: "There was an error loading data; check your connection and try again", preferredStyle: .alert)
