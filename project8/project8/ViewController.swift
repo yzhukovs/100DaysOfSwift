@@ -36,6 +36,7 @@ class ViewController: UIViewController {
         answersLabel.translatesAutoresizingMaskIntoConstraints = false
         answersLabel.font = UIFont.systemFont(ofSize: 24)
         answersLabel.text = "ANSWERS"
+        answersLabel.textAlignment = .right
         answersLabel.numberOfLines = 0
         view.addSubview(answersLabel)
         
@@ -46,6 +47,20 @@ class ViewController: UIViewController {
         currentAnswer.font = UIFont.systemFont(ofSize: 44)
         currentAnswer.isUserInteractionEnabled = false
         view.addSubview(currentAnswer)
+        
+        let sumbit = UIButton(type: .system)
+        sumbit.translatesAutoresizingMaskIntoConstraints = false
+        sumbit.setTitle("SUMBIT", for: .normal)
+        view.addSubview(sumbit)
+        
+        let clear = UIButton(type: .system)
+        clear.translatesAutoresizingMaskIntoConstraints = false
+        clear.setTitle("CLEAR", for: .normal)
+        view.addSubview(clear)
+        
+        let buttonsView = UIView()
+        buttonsView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(buttonsView)
         
         NSLayoutConstraint.activate([
             scoreLabel.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
@@ -61,10 +76,27 @@ class ViewController: UIViewController {
             
             currentAnswer.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             currentAnswer.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5),
-            currentAnswer.topAnchor.constraint(equalTo: cluesLabel.bottomAnchor, constant: 20)
+            currentAnswer.topAnchor.constraint(equalTo: cluesLabel.bottomAnchor, constant: 20),
+            
+            sumbit.topAnchor.constraint(equalTo: currentAnswer.bottomAnchor),
+            sumbit.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -100),
+            sumbit.heightAnchor.constraint(equalToConstant: 44),
+            
+            clear.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 100),
+            clear.centerYAnchor.constraint(equalTo: sumbit.centerYAnchor),
+            clear.heightAnchor.constraint(equalToConstant: 44),
+            
+            buttonsView.widthAnchor.constraint(equalToConstant: 750),
+            buttonsView.heightAnchor.constraint(equalToConstant: 320),
+            buttonsView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            buttonsView.topAnchor.constraint(equalTo: sumbit.bottomAnchor, constant: 20),
+            buttonsView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -20)
+            
+            
             ])
         cluesLabel.backgroundColor = .systemBlue
         answersLabel.backgroundColor = .purple
+        buttonsView.backgroundColor = .systemTeal
     }
     
     
