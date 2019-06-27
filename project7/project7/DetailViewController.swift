@@ -30,7 +30,9 @@ class DetailViewController: UIViewController {
          </head>
          <body>
          <i>
+         <b>
          \(detailItem.body)
+         </b>
          </i>
          </body>
          </html>
