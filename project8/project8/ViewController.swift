@@ -22,6 +22,9 @@ class ViewController: UIViewController {
         scoreLabel = UILabel()
         scoreLabel.translatesAutoresizingMaskIntoConstraints = false
         scoreLabel.textAlignment = .right
+        //scoreLabel.layer.borderColor = UIColor.black.cgColor
+        //scoreLabel.layer.borderWidth = 2
+        
         scoreLabel.text = "Score: 0"
         view.addSubview(scoreLabel)
         
@@ -30,7 +33,9 @@ class ViewController: UIViewController {
         cluesLabel.font = UIFont.systemFont(ofSize: 24)
         cluesLabel.text = "CLUES"
         cluesLabel.numberOfLines = 0
+        cluesLabel.setContentHuggingPriority(UILayoutPriority(1),for:.vertical)
         view.addSubview(cluesLabel)
+        
         
         answersLabel = UILabel()
         answersLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -38,6 +43,7 @@ class ViewController: UIViewController {
         answersLabel.text = "ANSWERS"
         answersLabel.textAlignment = .right
         answersLabel.numberOfLines = 0
+        answersLabel.setContentHuggingPriority(UILayoutPriority(1),for:.vertical)
         view.addSubview(answersLabel)
         
         currentAnswer = UITextField()
@@ -91,12 +97,26 @@ class ViewController: UIViewController {
             buttonsView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             buttonsView.topAnchor.constraint(equalTo: sumbit.bottomAnchor, constant: 20),
             buttonsView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -20)
-            
-            
+
             ])
-        cluesLabel.backgroundColor = .systemBlue
-        answersLabel.backgroundColor = .purple
-        buttonsView.backgroundColor = .systemTeal
+        let width = 150
+        let height = 80
+        
+        for row in 0..<4 {
+            for column in 0..<5 {
+                let letterButton = UIButton(type:.system)
+                letterButton.titleLabel?.font = UIFont.systemFont(ofSize: 36)
+                letterButton.setTitle("WWW", for: .normal)
+                
+                let frame = CGRect(x: column * width, y: row * height, width: width, height: height)
+                letterButton.frame = frame
+                buttonsView.addSubview(letterButton)
+                letterButtons.append(letterButton)
+            }
+        }
+        //cluesLabel.backgroundColor = .systemBlue
+        //answersLabel.backgroundColor = .purple
+        //buttonsView.backgroundColor = .systemTeal
     }
     
     
