@@ -1,8 +1,7 @@
 import UIKit
 
 func palindrome(word: String)-> Bool {
-    let lower = word.lowercased()
-   let tempWord = lower.reversed()
+    let tempWord = word.lowercased().reversed()
     var wordArray = [Character]()
     var reversedArray = [Character]()
     for i in word.lowercased() {
