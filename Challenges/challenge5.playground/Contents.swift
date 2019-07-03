@@ -1,13 +1,13 @@
 import UIKit
 
 func CountingChar(_ a: String, _ b: Character)-> Int {
-    var arrayChars = [Character]()
+    var counting = 0
     for i in a {
         if i == b {
-          arrayChars.append(i)
+        counting += 1
         }
     }
-   return arrayChars.count
+   return counting
     
 }
 
