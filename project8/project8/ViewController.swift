@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  project8
 //
-//  Created by Yvette Zhukovsky on 6/27/19.
+//  Created by Yvette Zhukovsky AND LYDIA!!!!!! on 6/27/19.
 //  Copyright © 2019 Lambda School Labs. All rights reserved.
 //
 
@@ -28,6 +28,7 @@ class ViewController: UIViewController {
     override func loadView() {
         view = UIView()
         view.backgroundColor = .lightGray
+        
         
         scoreLabel = UILabel()
         scoreLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -65,7 +66,7 @@ class ViewController: UIViewController {
         
         let submit = UIButton(type: .system)
         submit.translatesAutoresizingMaskIntoConstraints = false
-        submit.setTitle("SUMBIT", for: .normal)
+        submit.setTitle("SUBMIT", for: .normal)
         submit.addTarget(self, action: #selector(submitTapped), for: .touchUpInside)
         view.addSubview(submit)
         
@@ -76,6 +77,10 @@ class ViewController: UIViewController {
         view.addSubview(clear)
         
         let buttonsView = UIView()
+        buttonsView.layer.borderWidth = 20
+        buttonsView.layer.borderColor = UIColor.systemPink.cgColor
+        buttonsView.layer.borderWidth = 10
+        buttonsView.layer.borderColor =  UIColor.orange.cgColor
         buttonsView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(buttonsView)
         
@@ -120,6 +125,8 @@ class ViewController: UIViewController {
                 letterButton.setTitle("WWW", for: .normal)
                 letterButton.addTarget(self, action: #selector(letterTapped),for: .touchUpInside)
                 
+              
+                
                 let frame = CGRect(x: column * width, y: row * height, width: width, height: height)
                 letterButton.frame = frame
                 buttonsView.addSubview(letterButton)
@@ -130,7 +137,7 @@ class ViewController: UIViewController {
         //answersLabel.backgroundColor = .purple
         //buttonsView.backgroundColor = .systemTeal
     }
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -143,7 +150,8 @@ class ViewController: UIViewController {
         
         currentAnswer.text = currentAnswer.text?.appending(buttonTitle)
         activatedButtons.append(sender)
-        sender.isHidden = true
+        sender.isHidden = false
+       
     }
         
     @objc func submitTapped(_sender: UIButton) {
@@ -159,14 +167,24 @@ class ViewController: UIViewController {
             currentAnswer.text = ""
             score += 1
             
+            
             if score % 7 == 0 {
                 let ac = UIAlertController(title: "Well Done!", message: "Are you ready for the next level?", preferredStyle: .alert)
-                ac.addAction(UIAlertAction(title: "Let's go!", style: .default, handler: levelUp))
+                ac.addAction(UIAlertAction(title: "Let's go!", style: .default))
                 present(ac, animated: true)
-            }
+//                if currentAnswer != answersLabel {
+//                    let acc = UIAlertController(title: "WRONG!", message: "Try again, you'll get it!", preferredStyle: .alert)
+//                     ac.addAction(UIAlertAction(title: "Let's go!", style: .default))
+//                    present(acc, animated: true)
+//            }
+        }
+        } else {
+            let acc = UIAlertController(title: "WRONG!", message: "Try again, you'll get it!", preferredStyle: .alert)
+            acc.addAction(UIAlertAction(title: "I won't give up!", style: .default))
+            present(acc, animated: true)
+            
         }
     }
-  
     func levelUp(action: UIAlertAction) {
         level += 1
         
@@ -177,7 +195,7 @@ class ViewController: UIViewController {
             button.isHidden = false
         }
     }
-    @objc func clearTapped(_sender: UIButton) {
+       @objc func clearTapped(_sender: UIButton) {
         currentAnswer.text = ""
         
         for button in activatedButtons {
@@ -223,4 +241,5 @@ class ViewController: UIViewController {
             
         }
     }
-}
+    }
+
