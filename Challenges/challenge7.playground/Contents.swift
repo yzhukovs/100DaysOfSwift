@@ -8,11 +8,14 @@ func Spaced(a: String)-> String {
     for (i, j) in Array(a).enumerated() {
     
         //see if current and next item is space
+        for _ in 0..<Array(a).count {
         if !(j == " " && Array(a)[i + 1] == " "){
             spaces.append(j)
-        }
+            
+            }
+    }
     }
     return String(spaces)
 }
 
-print(Spaced(a: "    a  b    c"))
+print(Spaced(a: "    a  b    c  "))
