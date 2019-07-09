@@ -88,7 +88,7 @@ class ViewController: UITableViewController {
         if let jsonPetitions = try? decoder.decode(Petitions.self, from: json) {
             petitions = jsonPetitions.results
             filteredPetitions = petitions
-            performSelector(onMainThread: #selector(UITableView.reloadData), with: nil, waitUntilDone: false)
+            tableView.performSelector(onMainThread: #selector(UITableView.reloadData), with: nil, waitUntilDone: false)
         } else {
             performSelector(onMainThread: #selector(showError), with: nil, waitUntilDone: false)
         }
