@@ -19,26 +19,34 @@ class ViewController: UITableViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Credits", style: .plain, target: self, action: #selector(credits))
          navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Filter", style: .plain, target: self, action: #selector(filterData))
         
+        
+        performSelector(inBackground: #selector(fetchJason), with: nil)
+    }
+    
+    
+    
+   @objc func fetchJason() {
         let urlString: String
         if navigationController?.tabBarItem.tag == 0 {
-        urlString = "https://api.whitehouse.gov/v1/petitions.json?limit=100"
+            urlString = "https://api.whitehouse.gov/v1/petitions.json?limit=100"
         }else {
             urlString = "https://api.whitehouse.gov/v1/petitions.json?signatureCountFloor=10000&limit=100"
             
         }
         
-        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-        if let url = URL(string: urlString) {
-            if let data = try? Data(contentsOf: url) {
-                self?.parse(json: data)
-            }else {
-                self?.showError()
-            }
-        } else {
-            self?.showError()
+        
+            if let url = URL(string: urlString) {
+                if let data = try? Data(contentsOf: url) {
+                    parse(json: data)
+                }else {
+                    performSelector(onMainThread: #selector(showError), with: nil, waitUntilDone: false)
+                }
+            } else {
+                performSelector(onMainThread: #selector(showError), with: nil, waitUntilDone: false)
+           
         }
     }
-    }
+    
     
     @objc func filterData(){
         let ac = UIAlertController(title: "Enter search", message: nil, preferredStyle: .alert)
@@ -67,25 +75,22 @@ class ViewController: UITableViewController {
         
     }
     
-    func showError(){
-        DispatchQueue.main.async { [weak self] in
-            
+  @objc func showError(){
         let ac = UIAlertController(title: "Loading Error", message: "There was an error loading data; check your connection and try again", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "OK!", style: .default))
-        self?.present(ac, animated: true)
-        
-        }
+        present(ac, animated: true)
+    
     }
+    
     func parse(json: Data) {
         let decoder = JSONDecoder()
         
         if let jsonPetitions = try? decoder.decode(Petitions.self, from: json) {
             petitions = jsonPetitions.results
             filteredPetitions = petitions
-            DispatchQueue.main.async { [weak self] in
-                self?.tableView.reloadData()
-            }
-            
+            performSelector(onMainThread: #selector(UITableView.reloadData), with: nil, waitUntilDone: false)
+        } else {
+            performSelector(onMainThread: #selector(showError), with: nil, waitUntilDone: false)
         }
     }
     
