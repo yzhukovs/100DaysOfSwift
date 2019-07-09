@@ -20,5 +20,5 @@ func pangrams(a: String) -> Bool{
 }
 
 
-pangrams(a: "Thequick brown fox jumps over the lazy dog")
+pangrams(a: "The quick brown fox jumps over the lazy dog")
 
