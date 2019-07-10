@@ -54,11 +54,13 @@ class ViewController: UITableViewController {
         let sumbitAction = UIAlertAction(title: "Submit", style: .default) { [weak self, weak ac] action in
             guard let answer = ac?.textFields?[0].text else {return}
             self!.filteredPetitions.removeAll(keepingCapacity: true)
+            DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             for items in self!.petitions {
                 if items.body.contains(answer) || items.title.contains(answer) {
                     self!.filteredPetitions.append(items)
                    
                 }
+            }
             }
             //self!.filteredPetitions = self!.petitions.filter { $0.body == answer }
             self!.tableView.reloadData()
@@ -88,7 +90,10 @@ class ViewController: UITableViewController {
         if let jsonPetitions = try? decoder.decode(Petitions.self, from: json) {
             petitions = jsonPetitions.results
             filteredPetitions = petitions
-            tableView.performSelector(onMainThread: #selector(UITableView.reloadData), with: nil, waitUntilDone: false)
+            DispatchQueue.main.async {
+                self.tableView.performSelector(onMainThread: #selector(UITableView.reloadData), with: nil, waitUntilDone: false)
+            }
+            
         } else {
             performSelector(onMainThread: #selector(showError), with: nil, waitUntilDone: false)
         }
