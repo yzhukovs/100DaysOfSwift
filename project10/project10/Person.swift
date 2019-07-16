@@ -9,13 +9,13 @@
 import UIKit
 
 class Person: NSObject {
-    internal init(name: String, image: String) {
+    var name: String
+    var image: String
+    
+    
+    init(name: String, image: String) {
         self.name = name
         self.image = image
     }
-    
-    
-    var name: String
-    var image: String
     
 }
