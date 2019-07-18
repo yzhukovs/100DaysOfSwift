@@ -14,10 +14,21 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewPerson))
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .camera, target: self, action: #selector(addNewPicture))
     }
 
     @objc func addNewPerson() {
         let picker = UIImagePickerController()
+        picker.allowsEditing = true
+        picker.delegate = self
+        present(picker, animated: true)
+        
+    }
+    
+    @objc func addNewPicture() {
+        let picker = UIImagePickerController()
+        picker.sourceType = .camera
         picker.allowsEditing = true
         picker.delegate = self
         present(picker, animated: true)
@@ -56,6 +67,9 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         collectionView.reloadData()
         dismiss(animated: false)
     }
+    
+    
+    
     
     func getDocumentsDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
