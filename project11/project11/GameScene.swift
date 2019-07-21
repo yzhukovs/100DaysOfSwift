@@ -18,6 +18,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
+    var editLabel: SKLabelNode
+    
+    var editingMode: Bool = false {
+        
+    }
     
     override func didMove(to view: SKView) {
         let background = SKSpriteNode(imageNamed: "background")
