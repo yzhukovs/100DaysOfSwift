@@ -7,25 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		442C1E7222E54B6C00899B32 /* FireParticles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 442C1E7122E54B6C00899B32 /* FireParticles.sks */; };
 		4433976E22E22449006D1194 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4433976D22E22449006D1194 /* AppDelegate.swift */; };
 		4433977022E22449006D1194 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4433976F22E22449006D1194 /* GameScene.sks */; };
 		4433977422E22449006D1194 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4433977322E22449006D1194 /* GameScene.swift */; };
 		4433977622E22449006D1194 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4433977522E22449006D1194 /* GameViewController.swift */; };
 		4433977922E22449006D1194 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4433977722E22449006D1194 /* Main.storyboard */; };
-		4433977B22E2244D006D1194 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4433977A22E2244D006D1194 /* Assets.xcassets */; };
 		4433977E22E2244D006D1194 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4433977C22E2244D006D1194 /* LaunchScreen.storyboard */; };
+		4433978622E4F1A7006D1194 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4433978522E4F1A7006D1194 /* Media.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		442C1E7122E54B6C00899B32 /* FireParticles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = FireParticles.sks; sourceTree = SOURCE_ROOT; };
 		4433976A22E22449006D1194 /* project11.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = project11.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4433976D22E22449006D1194 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4433976F22E22449006D1194 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		4433977322E22449006D1194 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		4433977522E22449006D1194 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		4433977822E22449006D1194 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		4433977A22E2244D006D1194 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4433977D22E2244D006D1194 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4433977F22E2244D006D1194 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4433978522E4F1A7006D1194 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,13 +61,14 @@
 			isa = PBXGroup;
 			children = (
 				4433976D22E22449006D1194 /* AppDelegate.swift */,
+				4433978522E4F1A7006D1194 /* Media.xcassets */,
 				4433976F22E22449006D1194 /* GameScene.sks */,
 				4433977322E22449006D1194 /* GameScene.swift */,
 				4433977522E22449006D1194 /* GameViewController.swift */,
 				4433977722E22449006D1194 /* Main.storyboard */,
-				4433977A22E2244D006D1194 /* Assets.xcassets */,
 				4433977C22E2244D006D1194 /* LaunchScreen.storyboard */,
 				4433977F22E2244D006D1194 /* Info.plist */,
+				442C1E7122E54B6C00899B32 /* FireParticles.sks */,
 			);
 			path = project11;
 			sourceTree = "<group>";
@@ -130,7 +133,8 @@
 			files = (
 				4433977922E22449006D1194 /* Main.storyboard in Resources */,
 				4433977022E22449006D1194 /* GameScene.sks in Resources */,
-				4433977B22E2244D006D1194 /* Assets.xcassets in Resources */,
+				442C1E7222E54B6C00899B32 /* FireParticles.sks in Resources */,
+				4433978622E4F1A7006D1194 /* Media.xcassets in Resources */,
 				4433977E22E2244D006D1194 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
