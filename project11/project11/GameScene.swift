@@ -87,7 +87,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width / 2.0)
                 ball.physicsBody?.restitution = 0.7
                 ball.physicsBody?.contactTestBitMask = ball.physicsBody?.collisionBitMask ?? 0
-                ball.position = location
+                ball.position = CGPoint(x: location.x, y: touch.force.advanced(by: 700) )
+                    
+                    //CGFloat.random(in: 100...600)
                 ball.name = "ball"
                 addChild(ball)
         //        let box = SKSpriteNode(color: .red, size: CGSize(width: 64, height: 64))
