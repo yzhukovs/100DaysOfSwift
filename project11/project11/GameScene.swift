@@ -11,6 +11,7 @@ import SpriteKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     var scoreLabel: SKLabelNode!
+    var ballsCreated: Int = 0
     
     var score = 0 {
         didSet {
@@ -47,7 +48,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         editLabel.position  = CGPoint(x: 80, y: 700)
         addChild(editLabel)
         physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
-       physicsWorld.contactDelegate = self
+        physicsWorld.contactDelegate = self
         
         makeSlot(at: CGPoint(x: 128, y: 0), isGood: true)
         makeSlot(at: CGPoint(x: 384, y: 0), isGood: false)
@@ -61,13 +62,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         makeBouncer(at: CGPoint(x: 1024, y: 0))
         
         
-        }
         
+    }
+    
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else {return}
         let location = touch.location(in: self)
         let objects = nodes(at: location)
+        
         if objects.contains(editLabel) {
             editingMode.toggle()
         }else {
@@ -80,26 +83,34 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 box.position = location
                 box.physicsBody = SKPhysicsBody(rectangleOf: box.size)
                 box.physicsBody?.isDynamic = false
+                box.name = "box"
                 addChild(box)
             } else {
+                if ballsCreated == 5 {
+                    
+                    let ac = UIAlertController(title: "You used all 5 balls", message: nil, preferredStyle: .alert)
+                    ac.addAction(UIAlertAction(title: "OK", style: .default))
+                    self.view?.window?.rootViewController?.present(ac, animated: true, completion: nil)
+                    return
+                }
+
+                ballsCreated += 1
                 let balls = ["ballRed","ballBlue","ballCyan", "ballGreen","ballGrey", "ballPurple","ballYellow"]
                 let ball = SKSpriteNode(imageNamed: balls.randomElement()!)
                 ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width / 2.0)
                 ball.physicsBody?.restitution = 0.7
                 ball.physicsBody?.contactTestBitMask = ball.physicsBody?.collisionBitMask ?? 0
                 ball.position = CGPoint(x: location.x, y: touch.force.advanced(by: 700) )
-                    
-                    //CGFloat.random(in: 100...600)
                 ball.name = "ball"
                 addChild(ball)
-        //        let box = SKSpriteNode(color: .red, size: CGSize(width: 64, height: 64))
-        //        box.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 64, height: 64))
-        //        box.position = location
-        //        addChild(box)
+                //        let box = SKSpriteNode(color: .red, size: CGSize(width: 64, height: 64))
+                //        box.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 64, height: 64))
+                //        box.position = location
+                //        addChild(box)
+               
             }
         }
     }
-    
     
     func makeBouncer(at position: CGPoint){
         let bouncer = SKSpriteNode(imageNamed: "bouncer")
@@ -136,7 +147,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let spinForever = SKAction.repeatForever(spin)
         slotGlow.run(spinForever)
     }
-   
+    
     
     func collision(between ball: SKNode, object: SKNode){
         if object.name == "good" {
@@ -146,7 +157,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             destroy(ball: ball)
             score -= 1
         }
+        
     }
+    
+    
+    func collisionBox( between box: SKNode, object: SKNode  ) {
+        if object.name == "box" {
+            box.removeFromParent()
+        }  else if object.name == "ball" {
+            box.removeFromParent()
+        }
+    }
+    
     
     
     func destroy(ball: SKNode) {
@@ -168,5 +190,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         } else if nodeB.name == "ball" {
             collision(between: nodeB , object: nodeA)
         }
+        
+        if nodeA.name == "box" {
+            collisionBox(between: nodeA, object: nodeB)
+        }  else if nodeB.name == "ball" {
+            collisionBox(between: nodeB , object: nodeA)
+        }
+        
+        
     }
+    
+    
+    
 }
