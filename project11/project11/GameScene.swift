@@ -15,7 +15,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var score = 0 {
         didSet {
-            scoreLabel.text = "Score \(score)"
+            scoreLabel.text = "Score \(score) & balls used: \(ballsCreated)"
         }
     }
     
@@ -129,6 +129,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             slotBase = SKSpriteNode(imageNamed: "slotBaseGood")
             slotGlow = SKSpriteNode(imageNamed: "slotGlowGood")
             slotBase.name = "good"
+            
         } else {
             slotBase = SKSpriteNode(imageNamed: "slotBaseBad")
             slotGlow = SKSpriteNode(imageNamed: "slotGlowBad")
@@ -153,6 +154,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if object.name == "good" {
             destroy(ball: ball)
             score += 1
+            ballsCreated -= 1
+            
         } else if object.name == "bad" {
             destroy(ball: ball)
             score -= 1
