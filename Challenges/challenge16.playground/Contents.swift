@@ -1,7 +1,11 @@
 import UIKit
 
+
+
+
+
 func fizzBuzz(a: Int)-> String {
-    
+
     switch (a % 3 == 0, a % 5 == 0 ) {
     case (true, true):
         return "Fizz Buzz"
@@ -12,8 +16,7 @@ func fizzBuzz(a: Int)-> String {
     default:
         return String(a)
     }
-    
-    
+
 }
 
 fizzBuzz(a: 3)
