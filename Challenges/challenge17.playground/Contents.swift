@@ -11,4 +11,4 @@ func generateRandon(x: Int, y: Int) -> Int{
 }
 
 
-generateRandon(x: 1, y: 5)
+generateRandon(x: 1, y: 100000)
