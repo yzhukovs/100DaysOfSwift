@@ -16,13 +16,16 @@ class DetailViewController: UIViewController {
     var selectedImage: String?
     var totalImages: Int = 0
     var selectedImageNumber = 0
+    var selectImageTimes = 0
     
-   let vc = ViewController()
+    
+    let vc = ViewController()
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        
-        title = ("Picture \(selectedImageNumber) of \(totalImages)")
+        let defaults = UserDefaults.standard
+        defaults.set(selectImageTimes, forKey: "viewedTimes")
+        let savedTimes = defaults.integer(forKey: "viewedTimes")
+        title = ("Picture \(selectedImageNumber) of \(totalImages) & Viewed \(savedTimes) times ")
         navigationItem.largeTitleDisplayMode = .never
         if let imageLoad = selectedImage {
             imageView.image = UIImage(named: imageLoad)
@@ -31,7 +34,7 @@ class DetailViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.hidesBarsOnTap = true
@@ -40,17 +43,17 @@ class DetailViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-         navigationController?.hidesBarsOnTap = false
+        navigationController?.hidesBarsOnTap = false
     }
     
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
