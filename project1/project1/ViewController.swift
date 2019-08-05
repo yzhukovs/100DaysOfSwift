@@ -80,16 +80,13 @@ class ViewController: UITableViewController {
             var numTimes = 0
 
             print(dictionary)
-            
-           
+
             for (key, value) in dictionary {
                 if key == indexPath.row {
                  numTimes = value
                 }
             }
-           
-
-            
+         
              vc.selectImageTimes = numTimes
             
             
