@@ -12,25 +12,33 @@ class ViewController: UITableViewController {
 
     var allWords = [String]()
     var usedWords = [String]()
+   // var savedAllWords = UserDefaults.standard.object(forKey: "allWords") as? [String]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+      
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector (promptForAnswer))
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .play, target: self, action: #selector(startGame))
         
         if let startWordsURL = Bundle.main.url(forResource: "start", withExtension: "txt") {
             if let startWords = try? String(contentsOf: startWordsURL) {
+             //   UserDefaults.standard.set(allWords, forKey: "allWords")
                 allWords = startWords.components(separatedBy: "\n")
+               
+                
             }
         }
+        
         if allWords.isEmpty {
             allWords = ["silkworm"]
         }
         startGame()
     }
 
-    @objc func startGame(){
+    @objc func startGame() {
         title = allWords.randomElement()
         usedWords.removeAll(keepingCapacity: true)
         tableView.reloadData()
@@ -38,6 +46,7 @@ class ViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+       
         return usedWords.count
     }
  
@@ -53,7 +62,6 @@ class ViewController: UITableViewController {
         let sumbitAction = UIAlertAction(title: "Submit", style: .default) { [weak self, weak ac] action in
             guard let answer = ac?.textFields?[0].text else {return}
             self?.submit(answer)
-            
         }
         ac.addAction(sumbitAction)
         present(ac, animated: true)
@@ -61,10 +69,12 @@ class ViewController: UITableViewController {
     
     func submit(_ answer: String){
        let lowerAnswer = answer.lowercased()
+        UserDefaults.standard.set(answer, forKey: "answer")
         if isPossible(word: lowerAnswer) {
             if isOridinal(word: lowerAnswer) {
                 if isReal(word: lowerAnswer) {
-                    usedWords.insert(answer, at: 0)
+                    let savedAnswer = UserDefaults.standard.string(forKey: "answer")
+                    usedWords.insert(savedAnswer ?? " " , at: 0)
                     let indexPath = IndexPath(row: 0, section: 0)
                     tableView.insertRows(at: [indexPath], with: .automatic)
                     return
