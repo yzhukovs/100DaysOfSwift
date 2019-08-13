@@ -9,15 +9,15 @@
 import UIKit
 
 class ViewController: UITableViewController {
-
+    
     var allWords = [String]()
     var usedWords = [String]()
-   // var savedAllWords = UserDefaults.standard.object(forKey: "allWords") as? [String]
+    // var savedAllWords = UserDefaults.standard.object(forKey: "allWords") as? [String]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-      
+        
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector (promptForAnswer))
         
@@ -25,39 +25,46 @@ class ViewController: UITableViewController {
         
         if let startWordsURL = Bundle.main.url(forResource: "start", withExtension: "txt") {
             if let startWords = try? String(contentsOf: startWordsURL) {
-             //   UserDefaults.standard.set(allWords, forKey: "allWords")
+                //   UserDefaults.standard.set(allWords, forKey: "allWords")
                 allWords = startWords.components(separatedBy: "\n")
-               
-                
             }
         }
         
         if allWords.isEmpty {
             allWords = ["silkworm"]
         }
-        startGame()
+        title = UserDefaults.standard.string(forKey: "selectedWord")
+        //startGame()
     }
-
+    
     @objc func startGame() {
-        title = allWords.randomElement()
+        let selectedWord = allWords.randomElement()
+        UserDefaults.standard.set(selectedWord, forKey: "selectedWord")
+        let savedSelectedWord = UserDefaults.standard.string(forKey: "selectedWord")
+        print(selectedWord)
+        print(savedSelectedWord)
+        title = savedSelectedWord
         usedWords.removeAll(keepingCapacity: true)
         tableView.reloadData()
+        UserDefaults.standard.removeObject(forKey: "usedWords")
     }
-
+    
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       
-        return usedWords.count
+        print("count is \(usedWords.count)")
+        let savedUsedWords = UserDefaults.standard.object(forKey: "usedWords") as? [String] ?? [String]()
+        return savedUsedWords.count
     }
- 
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Word", for: indexPath)
-        cell.textLabel?.text = usedWords[indexPath.row]
+         let savedUsedWords = UserDefaults.standard.object(forKey: "usedWords") as? [String] ?? [String]()
+        cell.textLabel?.text = savedUsedWords[indexPath.row]
         return cell
     }
     
     @objc func promptForAnswer(){
-     let ac = UIAlertController(title: "Enter answer", message: nil, preferredStyle: .alert)
+        let ac = UIAlertController(title: "Enter answer", message: nil, preferredStyle: .alert)
         ac.addTextField()
         let sumbitAction = UIAlertAction(title: "Submit", style: .default) { [weak self, weak ac] action in
             guard let answer = ac?.textFields?[0].text else {return}
@@ -68,13 +75,13 @@ class ViewController: UITableViewController {
     }
     
     func submit(_ answer: String){
-       let lowerAnswer = answer.lowercased()
-        UserDefaults.standard.set(answer, forKey: "answer")
+        let lowerAnswer = answer.lowercased()
+       
         if isPossible(word: lowerAnswer) {
             if isOridinal(word: lowerAnswer) {
                 if isReal(word: lowerAnswer) {
-                    let savedAnswer = UserDefaults.standard.string(forKey: "answer")
-                    usedWords.insert(savedAnswer ?? " " , at: 0)
+                    usedWords.insert(answer , at: 0)
+                    UserDefaults.standard.set(usedWords, forKey: "usedWords")
                     let indexPath = IndexPath(row: 0, section: 0)
                     tableView.insertRows(at: [indexPath], with: .automatic)
                     return
@@ -86,7 +93,7 @@ class ViewController: UITableViewController {
             }
         }else {
             showErrorMessage(errorTitle: "Word not possible", errorMessage: "You can't spell that word from \(title!.lowercased())!")
-    
+            
         }
     }
     
@@ -113,7 +120,7 @@ class ViewController: UITableViewController {
     func isOridinal(word: String)-> Bool {
         return !usedWords.contains(word)
     }
-
+    
     func isReal(word: String)-> Bool {
         if word == title!.lowercased() {
             return false
