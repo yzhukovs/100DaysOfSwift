@@ -12,12 +12,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     @IBOutlet var intensity: UISlider!
     @IBOutlet var imageView: UIImageView!
+    @IBOutlet var changeFilterButton: UIButton!
+    
     var currentImage: UIImage!
     
     var context: CIContext!
     var currentFilter: CIFilter!
     
     override func viewDidLoad() {
+        changeFilterButton.titleLabel!.numberOfLines = 0
+        changeFilterButton.titleLabel!.adjustsFontSizeToFitWidth = true
+        changeFilterButton.titleLabel!.minimumScaleFactor = 0.5
+        
         super.viewDidLoad()
         title = "Instafilter"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(importPictures))
@@ -85,6 +91,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         guard  currentImage != nil  else { return }
         guard let actionTitle = action.title else { return }
         currentFilter = CIFilter(name: actionTitle)
+        changeFilterButton.setTitle(actionTitle, for: .normal)
         
         let beginImane = CIImage(image: currentImage)
         currentFilter.setValue(beginImane, forKey: kCIInputImageKey)
