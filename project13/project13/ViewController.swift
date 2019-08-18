@@ -13,6 +13,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet var intensity: UISlider!
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var changeFilterButton: UIButton!
+    @IBOutlet var radius: UISlider!
     
     var currentImage: UIImage!
     
@@ -100,21 +101,32 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
     }
     
+    
+    @IBAction func radiusControl(_ sender: Any) {
+        applyProcessing()
+    }
+    
+    
     func applyProcessing(){
        
         let inputKeys = currentFilter.inputKeys
         
         if inputKeys.contains(kCIInputIntensityKey) {
             currentFilter.setValue(intensity.value, forKey: kCIInputIntensityKey)
+            intensity.isEnabled = true
         }
         if inputKeys.contains(kCIInputRadiusKey) {
-            currentFilter.setValue(intensity.value * 200 , forKey: kCIInputRadiusKey)
+            currentFilter.setValue(radius.value * 200 , forKey: kCIInputRadiusKey)
+            intensity.isEnabled = false
+            print(currentFilter!)
         }
         if inputKeys.contains(kCIInputScaleKey) {
             currentFilter.setValue(intensity.value * 10 , forKey: kCIInputScaleKey)
+            intensity.isEnabled = true
         }
         if inputKeys.contains(kCIInputCenterKey) {
             currentFilter.setValue(CIVector(x: currentImage.size.width / 2, y: currentImage.size.height / 2 ) , forKey: kCIInputCenterKey)
+            intensity.isEnabled = true
                }
          guard let outputImage = currentFilter.outputImage else {return}
        
