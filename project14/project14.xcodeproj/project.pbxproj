@@ -14,6 +14,9 @@
 		445B2DA92309DB40002BDABE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 445B2DA72309DB40002BDABE /* Main.storyboard */; };
 		445B2DAB2309DB42002BDABE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 445B2DAA2309DB42002BDABE /* Assets.xcassets */; };
 		445B2DAE2309DB42002BDABE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 445B2DAC2309DB42002BDABE /* LaunchScreen.storyboard */; };
+		445B2DB72309DE9F002BDABE /* whackBad.caf in Resources */ = {isa = PBXBuildFile; fileRef = 445B2DB52309DE9F002BDABE /* whackBad.caf */; };
+		445B2DB82309DE9F002BDABE /* whack.caf in Resources */ = {isa = PBXBuildFile; fileRef = 445B2DB62309DE9F002BDABE /* whack.caf */; };
+		445B2DBA230B0B38002BDABE /* WhackSlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445B2DB9230B0B38002BDABE /* WhackSlot.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,9 @@
 		445B2DAA2309DB42002BDABE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		445B2DAD2309DB42002BDABE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		445B2DAF2309DB42002BDABE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		445B2DB52309DE9F002BDABE /* whackBad.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = whackBad.caf; sourceTree = SOURCE_ROOT; };
+		445B2DB62309DE9F002BDABE /* whack.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = whack.caf; sourceTree = SOURCE_ROOT; };
+		445B2DB9230B0B38002BDABE /* WhackSlot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhackSlot.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,10 +68,13 @@
 				445B2D9F2309DB40002BDABE /* GameScene.sks */,
 				445B2DA32309DB40002BDABE /* GameScene.swift */,
 				445B2DA52309DB40002BDABE /* GameViewController.swift */,
+				445B2DB9230B0B38002BDABE /* WhackSlot.swift */,
 				445B2DA72309DB40002BDABE /* Main.storyboard */,
 				445B2DAA2309DB42002BDABE /* Assets.xcassets */,
 				445B2DAC2309DB42002BDABE /* LaunchScreen.storyboard */,
 				445B2DAF2309DB42002BDABE /* Info.plist */,
+				445B2DB62309DE9F002BDABE /* whack.caf */,
+				445B2DB52309DE9F002BDABE /* whackBad.caf */,
 			);
 			path = project14;
 			sourceTree = "<group>";
@@ -128,10 +137,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				445B2DB72309DE9F002BDABE /* whackBad.caf in Resources */,
 				445B2DA92309DB40002BDABE /* Main.storyboard in Resources */,
 				445B2DA02309DB40002BDABE /* GameScene.sks in Resources */,
 				445B2DAB2309DB42002BDABE /* Assets.xcassets in Resources */,
 				445B2DAE2309DB42002BDABE /* LaunchScreen.storyboard in Resources */,
+				445B2DB82309DE9F002BDABE /* whack.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,6 +155,7 @@
 			files = (
 				445B2DA42309DB40002BDABE /* GameScene.swift in Sources */,
 				445B2DA62309DB40002BDABE /* GameViewController.swift in Sources */,
+				445B2DBA230B0B38002BDABE /* WhackSlot.swift in Sources */,
 				445B2D9E2309DB40002BDABE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
