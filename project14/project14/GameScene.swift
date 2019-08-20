@@ -80,11 +80,13 @@ class GameScene: SKScene {
         if numRounds >= 30 {
             for slot in slots {
                 slot.hide()
+                
             }
             
             let gameOver = SKSpriteNode(imageNamed: "gameOver")
             gameOver.position = CGPoint(x: 512 , y: 384 )
             gameOver.zPosition = 1
+            run(SKAction.playSoundFileNamed("gameOver.m4a", waitForCompletion: false))
             addChild(gameOver)
             return
         }
