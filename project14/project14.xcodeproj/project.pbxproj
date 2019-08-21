@@ -18,6 +18,9 @@
 		445B2DB82309DE9F002BDABE /* whack.caf in Resources */ = {isa = PBXBuildFile; fileRef = 445B2DB62309DE9F002BDABE /* whack.caf */; };
 		445B2DBA230B0B38002BDABE /* WhackSlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445B2DB9230B0B38002BDABE /* WhackSlot.swift */; };
 		445B2DBC230C630C002BDABE /* gameOver.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 445B2DBB230C630B002BDABE /* gameOver.m4a */; };
+		445B2DBE230C8FD3002BDABE /* SmokeEffectParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 445B2DBD230C8FD3002BDABE /* SmokeEffectParticle.sks */; };
+		445B2DC4230C92B6002BDABE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 445B2DC2230C92B6002BDABE /* Assets.xcassets */; };
+		445B2DC6230C9A3C002BDABE /* MudParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 445B2DC5230C9A3C002BDABE /* MudParticle.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,9 @@
 		445B2DB62309DE9F002BDABE /* whack.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = whack.caf; sourceTree = SOURCE_ROOT; };
 		445B2DB9230B0B38002BDABE /* WhackSlot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhackSlot.swift; sourceTree = "<group>"; };
 		445B2DBB230C630B002BDABE /* gameOver.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = gameOver.m4a; sourceTree = "<group>"; };
+		445B2DBD230C8FD3002BDABE /* SmokeEffectParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SmokeEffectParticle.sks; sourceTree = "<group>"; };
+		445B2DC2230C92B6002BDABE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		445B2DC5230C9A3C002BDABE /* MudParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MudParticle.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +56,7 @@
 		445B2D912309DB40002BDABE = {
 			isa = PBXGroup;
 			children = (
+				445B2DC2230C92B6002BDABE /* Assets.xcassets */,
 				445B2D9C2309DB40002BDABE /* project14 */,
 				445B2D9B2309DB40002BDABE /* Products */,
 			);
@@ -77,6 +84,8 @@
 				445B2DAF2309DB42002BDABE /* Info.plist */,
 				445B2DB62309DE9F002BDABE /* whack.caf */,
 				445B2DBB230C630B002BDABE /* gameOver.m4a */,
+				445B2DC5230C9A3C002BDABE /* MudParticle.sks */,
+				445B2DBD230C8FD3002BDABE /* SmokeEffectParticle.sks */,
 				445B2DB52309DE9F002BDABE /* whackBad.caf */,
 			);
 			path = project14;
@@ -143,9 +152,12 @@
 				445B2DB72309DE9F002BDABE /* whackBad.caf in Resources */,
 				445B2DA92309DB40002BDABE /* Main.storyboard in Resources */,
 				445B2DA02309DB40002BDABE /* GameScene.sks in Resources */,
+				445B2DC4230C92B6002BDABE /* Assets.xcassets in Resources */,
 				445B2DAB2309DB42002BDABE /* Assets.xcassets in Resources */,
 				445B2DAE2309DB42002BDABE /* LaunchScreen.storyboard in Resources */,
+				445B2DC6230C9A3C002BDABE /* MudParticle.sks in Resources */,
 				445B2DBC230C630C002BDABE /* gameOver.m4a in Resources */,
+				445B2DBE230C8FD3002BDABE /* SmokeEffectParticle.sks in Resources */,
 				445B2DB82309DE9F002BDABE /* whack.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
