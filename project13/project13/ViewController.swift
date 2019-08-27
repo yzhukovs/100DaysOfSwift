@@ -46,6 +46,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let image = info[.editedImage] as? UIImage else {return}
         dismiss(animated: true)
+        UIView.animate(withDuration: 5, delay: 1, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: [.transitionCrossDissolve], animations: {
+            self.imageView.alpha = 0.1
+            self.imageView.alpha = 0.5
+            self.imageView.alpha = 1
+            
+          }) //{ (finished) in
+//              self.imageView.alpha = 0.5
+//              self.imageView.alpha = 1
+//           }
         currentImage = image
         
         let beginImage = CIImage(image: currentImage)
