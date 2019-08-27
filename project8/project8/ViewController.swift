@@ -142,6 +142,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         performSelector(inBackground: #selector(loadLevel), with: nil)
+        
     }
     
     @objc func letterTapped(_ sender: UIButton) {
@@ -150,7 +151,12 @@ class ViewController: UIViewController {
         
         currentAnswer.text = currentAnswer.text?.appending(buttonTitle)
         activatedButtons.append(sender)
-        sender.isHidden = false
+        UIView.animate(withDuration: 3, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: [], animations: {
+               sender.alpha = 0
+                   
+               })
+    
+        //sender.isHidden = true
        
     }
         
@@ -170,7 +176,7 @@ class ViewController: UIViewController {
             
             if score % 7 == 0 {
                 let ac = UIAlertController(title: "Well Done!", message: "Are you ready for the next level?", preferredStyle: .alert)
-                ac.addAction(UIAlertAction(title: "Let's go!", style: .default))
+                ac.addAction(UIAlertAction(title: "Let's go!", style: .default, handler: levelUp))
                 present(ac, animated: true)
 //                if currentAnswer != answersLabel {
 //                    let acc = UIAlertController(title: "WRONG!", message: "Try again, you'll get it!", preferredStyle: .alert)
@@ -190,6 +196,7 @@ class ViewController: UIViewController {
         
         solutions.removeAll(keepingCapacity: true)
         performSelector(inBackground: #selector(loadLevel), with: nil)
+        
         
         for button in letterButtons {
             button.isHidden = false

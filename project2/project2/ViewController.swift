@@ -54,7 +54,7 @@ class ViewController: UIViewController {
     @IBAction func buttonTapped(_ sender: UIButton) {
        
          UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 8, options: [], animations: {
-            sender.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+            sender.transform = CGAffineTransform(scaleX: 7, y: 0.2)
              sender.transform = .identity
             
         })
