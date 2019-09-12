@@ -83,7 +83,7 @@ class ViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        filteredPetitions.count
+        return filteredPetitions.count
         //petitions.count
     }
     

@@ -9,4 +9,4 @@ func StringToNum(a: String)-> Bool {
     return false
 }
 
-StringToNum(a: "1.01")
+StringToNum(a: "92233720368.54775808")
