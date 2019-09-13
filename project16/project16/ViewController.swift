@@ -13,6 +13,8 @@ class ViewController: UIViewController, MKMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Maps", style: .plain, target: self, action: #selector(alert))
+        
         let london = Capital(title: "London", coordinate: CLLocationCoordinate2D(latitude: 51.507222, longitude: -0.1275)
             , info: "Home to the 2012 summer olympics")
         let oslo = Capital(title: "Oslo", coordinate: CLLocationCoordinate2D(latitude: 59.95, longitude: 10.75), info: "Founded over a thousand years ago")
@@ -24,7 +26,41 @@ class ViewController: UIViewController, MKMapViewDelegate {
         let washington = Capital(title: "Washington DC", coordinate: CLLocationCoordinate2D(latitude: 38.895111, longitude: -77.036667), info: "Named after George himself")
         
         mapView.addAnnotations([london, oslo, paris, rome, washington])
+    
        
+    }
+    
+    @objc func alert(){
+       let ac = UIAlertController(title: "Choose a map", message: nil, preferredStyle: .actionSheet)
+        ac.addAction(UIAlertAction(title: "Standard", style: .default
+            , handler: setMap))
+        ac.addAction(UIAlertAction(title: "Hybrid", style: .default
+                   , handler: setMap))
+               
+        ac.addAction(UIAlertAction(title: "Satellite", style: .default
+        , handler: setMap))
+        ac.addAction(UIAlertAction(title: "Hybrid Flyover", style: .default
+        , handler: setMap))
+        ac.addAction(UIAlertAction(title: "Satellite Flyover", style: .default
+        , handler: setMap))
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+         present(ac, animated: true)
+       
+    }
+    
+    func setMap(action: UIAlertAction){
+        if action.title == "Standard"  {
+            mapView.mapType = .standard
+        } else if action.title == "Hybrid" {
+            mapView.mapType = .hybrid
+        } else if action.title == "Satellite" {
+            mapView.mapType = .satellite
+         } else if action.title == "Hybrid Flyover" {
+             mapView.mapType = .hybridFlyover
+        } else if action.title == "Satellite Flyover" {
+            mapView.mapType = .satelliteFlyover
+
+    }
     }
 
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
