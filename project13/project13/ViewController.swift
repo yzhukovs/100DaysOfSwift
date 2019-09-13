@@ -97,6 +97,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         present(ac, animated: true)
     }
     
+    
     func setFilter(action: UIAlertAction) {
         guard  currentImage != nil  else { return }
         guard let actionTitle = action.title else { return }

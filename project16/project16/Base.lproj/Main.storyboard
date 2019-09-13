@@ -40,6 +40,37 @@
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="138.61607142857142"/>
         </scene>
+        <!--Web View Controller-->
+        <scene sceneID="bDF-Kg-F3a">
+            <objects>
+                <viewController storyboardIdentifier="webVC" id="any-V0-Tju" customClass="WebViewController" customModule="project16" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Rsx-tM-a2Z">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mqo-d3-68N">
+                                <rect key="frame" x="0.0" y="44" width="414" height="808"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="mqo-d3-68N" firstAttribute="leading" secondItem="Rsx-tM-a2Z" secondAttribute="leading" id="4me-XC-Ld0"/>
+                            <constraint firstItem="mqo-d3-68N" firstAttribute="centerY" secondItem="Rsx-tM-a2Z" secondAttribute="centerY" id="E05-lj-NQB"/>
+                            <constraint firstItem="mqo-d3-68N" firstAttribute="top" secondItem="Rsx-tM-a2Z" secondAttribute="topMargin" id="Fdi-Bk-h24"/>
+                            <constraint firstItem="mqo-d3-68N" firstAttribute="centerX" secondItem="Rsx-tM-a2Z" secondAttribute="centerX" id="w9O-vC-hNB"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="P4F-d2-wzW"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="omj-U2-LHi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1834.7826086956522" y="140.625"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="viC-9a-M6I">
             <objects>
