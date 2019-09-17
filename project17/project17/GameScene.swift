@@ -65,7 +65,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         sprite.physicsBody?.angularVelocity = 5
         sprite.physicsBody?.linearDamping = 0
         sprite.physicsBody?.angularDamping = 0
-        
+        if isGameOver {
+            possibleEnemies.removeAll()
+        }
         
     }
     
@@ -82,7 +84,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else {return}
         var location = touch.location(in: self)
         
@@ -94,12 +96,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.position = location
     }
     
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let touch = touches.first else {return}
+      
+        player.position = touch.location(in: self)
+    }
+    
+    
+    
     func didBegin(_ contact: SKPhysicsContact) {
         let explosion = SKEmitterNode(fileNamed: "explosion")!
         explosion.position = player.position
         addChild(explosion)
         
         player.removeFromParent()
+//        for enemies in possibleEnemies {
+//            enemies.removef
+//        }
+        
         isGameOver = true
     }
     
