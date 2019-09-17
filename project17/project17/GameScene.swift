@@ -97,9 +97,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let touch = touches.first else {return}
-      
-        player.position = touch.location(in: self)
+        
+        
+        player.position =  CGPoint(x: 100, y: 384)
     }
     
     
@@ -108,12 +108,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let explosion = SKEmitterNode(fileNamed: "explosion")!
         explosion.position = player.position
         addChild(explosion)
-        
         player.removeFromParent()
-//        for enemies in possibleEnemies {
-//            enemies.removef
-//        }
-        
         isGameOver = true
     }
     
