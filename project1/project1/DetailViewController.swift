@@ -31,7 +31,7 @@ class DetailViewController: UIViewController {
             imageView.image = UIImage(named: imageLoad)
             
         }
-        // Do any additional setup after loading the view.
+        assert(selectedImage != nil, "checking if selected Image always has a value")
     }
     
     

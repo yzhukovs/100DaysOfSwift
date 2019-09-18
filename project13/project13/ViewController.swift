@@ -26,6 +26,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         changeFilterButton.titleLabel!.minimumScaleFactor = 0.5
         
         super.viewDidLoad()
+       
         title = "Instafilter"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(importPictures))
         context = CIContext()

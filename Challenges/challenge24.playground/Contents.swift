@@ -16,3 +16,10 @@ func someOfInt(a: String)-> Int {
 }
 
 print(someOfInt(a: "a10b20c30"))
+
+func challenge26c(subtract: Int, from: Int) -> Int {
+    print(~subtract)
+   return from + (~subtract + 1 )
+    
+}
+challenge26c(subtract: 10, from: 20)

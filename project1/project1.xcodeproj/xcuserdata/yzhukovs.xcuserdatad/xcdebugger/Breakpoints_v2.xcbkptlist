@@ -3,4 +3,142 @@
    uuid = "C83B155D-738B-4305-BDC2-907751A9B8BA"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E861F467-AC4D-4BAC-A639-60DA7BB23A3D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            condition = "storyboard.instantiateViewController(withIdentifier :&quot;BAD&quot;)"
+            continueAfterRunningActions = "No"
+            filePath = "project1/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "ViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "E861F467-AC4D-4BAC-A639-60DA7BB23A3D - bd5fee52d5026108"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "project1.ViewController.__allocating_init(style: __C.UITableViewStyle) -&gt; project1.ViewController"
+                  moduleName = "project1"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yzhukovs/development/100DaysofSwift/project1/project1/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  uuid = "E861F467-AC4D-4BAC-A639-60DA7BB23A3D - e79228f7278211f7"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "project1.ViewController.init(style: __C.UITableViewStyle) -&gt; project1.ViewController"
+                  moduleName = "project1"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yzhukovs/development/100DaysofSwift/project1/project1/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "37">
+               </Location>
+               <Location
+                  uuid = "E861F467-AC4D-4BAC-A639-60DA7BB23A3D - 13a933ef664fd945"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "project1.ViewController.__allocating_init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; project1.ViewController"
+                  moduleName = "project1"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yzhukovs/development/100DaysofSwift/project1/project1/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  uuid = "E861F467-AC4D-4BAC-A639-60DA7BB23A3D - 8638af079d15baf3"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "project1.ViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; project1.ViewController"
+                  moduleName = "project1"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yzhukovs/development/100DaysofSwift/project1/project1/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "197">
+               </Location>
+               <Location
+                  uuid = "E861F467-AC4D-4BAC-A639-60DA7BB23A3D - 5e4d45d2ea4f067e"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "project1.ViewController.__allocating_init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;project1.ViewController&gt;"
+                  moduleName = "project1"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yzhukovs/development/100DaysofSwift/project1/project1/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  uuid = "E861F467-AC4D-4BAC-A639-60DA7BB23A3D - e1f86aa3784ec53d"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "project1.ViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;project1.ViewController&gt;"
+                  moduleName = "project1"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yzhukovs/development/100DaysofSwift/project1/project1/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "120">
+               </Location>
+               <Location
+                  uuid = "E861F467-AC4D-4BAC-A639-60DA7BB23A3D - e07aed072907d04e"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "project1.ViewController.__deallocating_deinit"
+                  moduleName = "project1"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yzhukovs/development/100DaysofSwift/project1/project1/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
+         <BreakpointContent
+            uuid = "842AD86E-4199-4B40-A90C-9D7C7434FB3E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            condition = "storyboard.instantiateViewController(withIdentifier :&quot;BAD&quot;)"
+            continueAfterRunningActions = "No"
+            scope = "1"
+            stopOnStyle = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
