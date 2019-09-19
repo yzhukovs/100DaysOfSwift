@@ -17,6 +17,7 @@
 		44262E182332AD8E00BA6A29 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44262E172332AD8E00BA6A29 /* ActionViewController.swift */; };
 		44262E1B2332AD8E00BA6A29 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44262E192332AD8E00BA6A29 /* MainInterface.storyboard */; };
 		44262E1F2332AD8E00BA6A29 /* Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 44262E132332AD8E00BA6A29 /* Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		44262E25233310EF00BA6A29 /* Action.js in Resources */ = {isa = PBXBuildFile; fileRef = 44262E24233310EF00BA6A29 /* Action.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		44262E172332AD8E00BA6A29 /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
 		44262E1A2332AD8E00BA6A29 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		44262E1C2332AD8E00BA6A29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		44262E24233310EF00BA6A29 /* Action.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Action.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 				44262E172332AD8E00BA6A29 /* ActionViewController.swift */,
 				44262E192332AD8E00BA6A29 /* MainInterface.storyboard */,
 				44262E1C2332AD8E00BA6A29 /* Info.plist */,
+				44262E24233310EF00BA6A29 /* Action.js */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44262E25233310EF00BA6A29 /* Action.js in Resources */,
 				44262E162332AD8E00BA6A29 /* Media.xcassets in Resources */,
 				44262E1B2332AD8E00BA6A29 /* MainInterface.storyboard in Resources */,
 			);
