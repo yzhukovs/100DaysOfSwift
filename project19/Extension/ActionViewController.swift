@@ -20,7 +20,10 @@ class ActionViewController: UIViewController {
         super.viewDidLoad()
     
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(callAlerts))
 
+        
+        
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
         notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
@@ -41,6 +44,13 @@ class ActionViewController: UIViewController {
             }
         }
     }
+    
+    @objc func callAlerts(){
+        
+    let ac = UIAlertController(title: "Choose Action", message: nil, preferredStyle: .actionSheet)
+                  ac.addAction(UIAlertAction(title: "Alert", style: .default, handler: alertAction))
+           present(ac, animated: true)
+}
 
     @IBAction func done() {
         let item = NSExtensionItem()
@@ -52,6 +62,13 @@ class ActionViewController: UIViewController {
         extensionContext!.completeRequest(returningItems: [item])
     }
 
+    func alertAction(action: UIAlertAction)
+    {
+        script.text = "alert(document.title);"
+        done()
+    }
+    
+    
     @objc func adjustForKeyboard(notification: Notification) {
         let userInfo = notification.userInfo!
 
