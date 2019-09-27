@@ -107,8 +107,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
-        
+
+
         player.position =  CGPoint(x: 100, y: 384)
     }
     

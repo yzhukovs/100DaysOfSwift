@@ -1,0 +1,29 @@
+func rockPaperScissors(_ n: Int) ->[(String, String)]{
+    var outcomes = [(String, String)]()
+    let plays = ["rock", "paper", "scissors"]
+
+    for i in plays {
+        for j in plays {
+            if outcomes.count == n {
+                return outcomes
+            }
+            outcomes.append((i, j))
+        }
+    }
+   
+
+    return outcomes
+}
+
+let rv = rockPaperScissors(1000)
+print(rv)
+
+
+Ralph: x
+Jason: 2x
+10y ago:
+Ralph: x-10
+Jason: 3x
+
+J = R*2
+J-10 = (R-10)*3 -> R*2-10 = 3*R-30 -> 30 - 10 = 3*R-2*R -> R = 20

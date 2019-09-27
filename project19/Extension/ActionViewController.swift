@@ -49,6 +49,7 @@ class ActionViewController: UIViewController {
         
     let ac = UIAlertController(title: "Choose Action", message: nil, preferredStyle: .actionSheet)
                   ac.addAction(UIAlertAction(title: "Alert", style: .default, handler: alertAction))
+        ac.addAction(UIAlertAction(title: "Prompt Alert", style: .default, handler: promptAction))
            present(ac, animated: true)
 }
 
@@ -67,7 +68,11 @@ class ActionViewController: UIViewController {
         script.text = "alert(document.title);"
         done()
     }
-    
+    func promptAction(action: UIAlertAction)
+       {
+           script.text = "window.prompt(document.title);"
+           done()
+       }
     
     @objc func adjustForKeyboard(notification: Notification) {
         let userInfo = notification.userInfo!
@@ -87,6 +92,7 @@ class ActionViewController: UIViewController {
         script.scrollRangeToVisible(selectedRange)
     }
 }
+
 
 
 //keyboardViewEndFrame.height - view.safeAreaInsets.bottom
