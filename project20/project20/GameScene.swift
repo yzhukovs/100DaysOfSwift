@@ -12,13 +12,14 @@ import SpriteKit
 class GameScene: SKScene {
     var gameTimer: Timer?
     var fireworks = [SKNode]()
+     var gameScore: SKLabelNode!
     
     let leftEdge = -22
     let bottomEdge = -22
     let rightEdge = 1024 + 22
     var score = 0 {
         didSet {
-            //Your code here
+            gameScore.text = "\(score)"
         }
     }
     override func didMove(to view: SKView) {
@@ -27,7 +28,11 @@ class GameScene: SKScene {
         background.position = CGPoint(x: 512, y: 384)
         background.zPosition = -1
         addChild(background)
-        
+        gameScore = SKLabelNode(fontNamed: "Chalkduster")
+               gameScore.position = CGPoint(x: 8, y: 8)
+               gameScore.horizontalAlignmentMode = .left
+               gameScore.fontSize  = 48
+               addChild(gameScore)
         gameTimer = Timer.scheduledTimer(timeInterval: 6, target: self, selector: #selector(launchFireworks), userInfo: nil, repeats: true)
     }
     
