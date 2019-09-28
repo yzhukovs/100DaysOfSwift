@@ -13,6 +13,13 @@ class GameScene: SKScene {
     var gameTimer: Timer?
     var fireworks = [SKNode]()
      var gameScore: SKLabelNode!
+    var counter = 0 {
+        didSet {
+            if counter == 9 {
+                gameTimer?.invalidate()
+            }
+        }
+    }
     
     let leftEdge = -22
     let bottomEdge = -22
@@ -22,6 +29,7 @@ class GameScene: SKScene {
             gameScore.text = "\(score)"
         }
     }
+    
     override func didMove(to view: SKView) {
         let background = SKSpriteNode(imageNamed:"background")
         background.blendMode = .replace
@@ -29,13 +37,17 @@ class GameScene: SKScene {
         background.zPosition = -1
         addChild(background)
         gameScore = SKLabelNode(fontNamed: "Chalkduster")
-               gameScore.position = CGPoint(x: 8, y: 8)
-               gameScore.horizontalAlignmentMode = .left
-               gameScore.fontSize  = 48
-               addChild(gameScore)
+        gameScore.position = CGPoint(x: 8, y: 8)
+        gameScore.text = "Score: 0"
+        gameScore.horizontalAlignmentMode = .left
+        gameScore.fontSize  = 48
+        addChild(gameScore)
+      // var counter = 0
+        
         gameTimer = Timer.scheduledTimer(timeInterval: 6, target: self, selector: #selector(launchFireworks), userInfo: nil, repeats: true)
+        
+        
     }
-    
     func createFirework(xMovement: CGFloat, x: Int, y: Int){
         let node = SKNode()
         node.position = CGPoint(x: x, y: y)
@@ -69,8 +81,10 @@ class GameScene: SKScene {
     }
     
     @objc func launchFireworks(){
-        let movementAmount: CGFloat = 1800
         
+        let movementAmount: CGFloat = 1800
+        counter += 1
+        print(counter)
         switch Int.random(in: 0...3) {
         case 0:
             //Fire five, straight up
@@ -102,8 +116,10 @@ class GameScene: SKScene {
             createFirework(xMovement: -movementAmount, x: rightEdge, y: bottomEdge)
         default:
             break
-        }
         
+       
+       
+        }
     }
         func checkTouches(_ touches: Set<UITouch>) {
             guard let touch = touches.first else {return}
