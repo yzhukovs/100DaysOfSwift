@@ -9,7 +9,7 @@
 import UIKit
 import UserNotifications
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UNUserNotificationCenterDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +31,7 @@ class ViewController: UIViewController {
     }
 
     @objc func scheduleLocal(){
+        registerCategories()
         let center = UNUserNotificationCenter.current()
         let content = UNMutableNotificationContent()
         center.removeAllPendingNotificationRequests()
@@ -47,6 +48,40 @@ class ViewController: UIViewController {
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
         center.add(request)
+    }
+    
+    func registerCategories(){
+        let center = UNUserNotificationCenter.current()
+        center.delegate = self
+        
+        let show = UNNotificationAction(identifier: "show", title: "Tell me more", options: .foreground)
+        let category = UNNotificationCategory(identifier: "alarm", actions: [show], intentIdentifiers: [], options: [])
+        center.setNotificationCategories([category])
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        let userInfo = response.notification.request.content.userInfo
+        
+        if let customData = userInfo["customData"] as? String {
+            print("custom Data received \(customData)")
+            switch response.actionIdentifier {
+            case UNNotificationDefaultActionIdentifier:
+                let ac = UIAlertController(title: "User Swipped", message: nil, preferredStyle: .actionSheet)
+                ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+                present(ac, animated: true)
+                
+                print("Default identifier")
+            case "show":
+                let ac = UIAlertController(title: "User Asked More Information", message: nil, preferredStyle: .actionSheet)
+                ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+                present(ac, animated: true)
+                
+                print("show more information")
+            default:
+                break
+            }
+        }
+        completionHandler()
     }
 }
 
