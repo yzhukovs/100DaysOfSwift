@@ -47,15 +47,21 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
        // let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        let secondTrigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: false)
+        let secondsRequest = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: secondTrigger)
         center.add(request)
+        center.add(secondsRequest)
+        
     }
     
     func registerCategories(){
         let center = UNUserNotificationCenter.current()
         center.delegate = self
-        
         let show = UNNotificationAction(identifier: "show", title: "Tell me more", options: .foreground)
-        let category = UNNotificationCategory(identifier: "alarm", actions: [show], intentIdentifiers: [], options: [])
+        let secondAlert = UNNotificationAction(identifier: "show", title: "Remind me later", options: .foreground)
+        let category = UNNotificationCategory(identifier: "alarm", actions: [show, secondAlert], intentIdentifiers: [], options: [])
+        
+        
         center.setNotificationCategories([category])
     }
     
