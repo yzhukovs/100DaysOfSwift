@@ -47,7 +47,7 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
        // let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-        let secondTrigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: false)
+        let secondTrigger = UNTimeIntervalNotificationTrigger(timeInterval: 86400, repeats: false)
         let secondsRequest = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: secondTrigger)
         center.add(request)
         center.add(secondsRequest)

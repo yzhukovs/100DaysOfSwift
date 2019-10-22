@@ -12,9 +12,31 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
+    
+    func authorizatin() {
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
+            if granted {
+                let center = UNUserNotificationCenter.current()
+                let content = UNMutableNotificationContent()
+                center.removeAllPendingNotificationRequests()
+                content.title = "Late wake up call"
+                content.body = "The early birds get catches the warm, but the second mouse gets the cheese"
+                content.categoryIdentifier = "alarm"
+                content.userInfo = ["customData": "fizzbuzz"]
+                content.sound = .default
+                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+                let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+                center.add(request)
+            } else {
+                print("D'oh!")
+            }
+        }
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        authorizatin()
         return true
     }
 
