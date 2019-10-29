@@ -55,6 +55,8 @@
 	</array>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>We want to help you find your nearest store</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We want to help you find your nearest store</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
