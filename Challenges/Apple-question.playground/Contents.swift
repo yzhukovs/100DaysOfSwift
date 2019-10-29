@@ -8,47 +8,57 @@ import UIKit
  2) Total duration of the video.
  
  */
-typealias Segment = (startTime: Double, endTime: Double)
+
+typealias Segment  = (startTime: Double, endTime: Double)
 func percentWatched(segments: [Segment], totalDuration: Double) -> Double {
     
-    // Segment = [starttime , endtime]
-    // duration = Total time of the Video
-    // return Return the percentage of video. -> Double
     
-    // [Segment] is an array... iterate
-    // watch the same 10 mins over again at any point of the video
     
-    // [[5, 10],[25, 45]] // 5 + 20 -> 25.  25 / 100. = .25 -> 25%
+   let sortedSegment = segments.sorted(by:{$0.startTime < $1.startTime})
+   
+    print(sortedSegment)
     
-    // [(5, 10), (25, 45), (7, 30)]
+    var start: Double = 0
+    var end: Double = 0
+    var total: Double = 0
     
-   // var watchedTime:Double = 0
-    var sorted = segments.sorted {$0 < $1}
-    for i in sorted {
-    
+    var watchedTime:[Double] = []
+   // let range: ClosedRange<Double> = 0...totalDuration
+    for i in 0..<(sortedSegment.count ) {
+        for j in 1..<(sortedSegment.count - 1) {
+        let range: ClosedRange<Double> = sortedSegment[i].startTime...sortedSegment[i].endTime
+            let anotherRange: ClosedRange<Double> = sortedSegment[j].startTime...sortedSegment[j].endTime
+            if range.overlaps(anotherRange) {
+                print(range.overlaps(anotherRange))
+                watchedTime.append(Double(j))
+            }
+        }
     }
-    
-    print(sorted)
-    var total = 0.0
-    for i in segments {
-        total += i.endTime - i.startTime
-    }
-    var percentageWatched = (total / totalDuration) * 100
-     return percentageWatched
-//    var total = sortegSeg[0][1] - sortegSeg[0][0]
-//    var percent = (watchedTime / totalDuration) * 100 // get the percentage.
+//    for segment in sortedSegment {
+//        if segment.startTime >= end {
 //
-//    var currentSegmentStart:Double = 0
-//    var currentSegmentEnd = totalDuration
+//            //total += end - start
+//            start = segment.startTime
+//            end = segment.endTime
+//            watchedTime.append(segment.endTime -  segment.startTime)
+//            //watchedTime.append(total)
+//            total = watchedTime.reduce(0,+)
 //
-//    for segment in segments {
-//        let start = segment.startTime
-//        let stop = segment.endTime
-//
-//        watchedTime += currentSegmentStart - currentSegmentEnd
-        
-   // }
+//        } else {
+//            start = min(segment.startTime, start)
+//            end = max(segment.endTime, end)
+//            watchedTime = [end - start]
+//            total = watchedTime[0]
+//       // print(total)
+//        }
+//    }
+//print(total)
+   
+     return (total / totalDuration) * 100
     
 }
-
-percentWatched(segments: [(5, 10), (25, 45), (7, 30)], totalDuration: 45)
+                         //22      //18
+print(percentWatched(segments: [(1, 3),(22, 44), (4, 25)], totalDuration: 100))
+                          //6
+//print(percentWatched(segments: [ (25, 45), (7, 30), (6, 9), (50, 60), (4, 10),(1, 3) ], totalDuration: 100))
+//print(percentWatched(segments: [(5, 10), (25, 45), (7, 30)], totalDuration: 45))
