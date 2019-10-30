@@ -37,18 +37,28 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         locationManager?.startMonitoring(for: beaconRegion)
         locationManager?.startRangingBeacons(in: beaconRegion)
     }
+    static func showAlertMessage(vc: UIViewController, titleStr:String, messageStr:String) -> Void {
+        let alert = UIAlertController(title: titleStr, message: messageStr, preferredStyle: UIAlertController.Style.alert)
+        vc.present(alert, animated: true, completion: nil)
+    }
+    
     
     func updateDistance(distance: CLProximity) {
+        var isAlertShown = false
         UIView.animate(withDuration: 1) {
             switch distance {
-                
              case .far:
                 self.view.backgroundColor = .blue
                 self.distanceReading.text = "FAR"
                 
              case .near:
+                isAlertShown = true
                 self.view.backgroundColor = .orange
                 self.distanceReading.text = "NEAR"
+                if isAlertShown {
+                    ViewController.showAlertMessage(vc: self, titleStr: "You are near beacon", messageStr: "Beacon detected!")
+                    isAlertShown = false
+                }
                 
             case .immediate:
                 self.view.backgroundColor = .red
@@ -60,12 +70,18 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
+    
+    
+    
+    
     func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
         if let beacon = beacons.first {
             updateDistance(distance: beacon.proximity)
         } else {
             updateDistance(distance: .unknown)
         }
+        
+         
     }
     
 }
