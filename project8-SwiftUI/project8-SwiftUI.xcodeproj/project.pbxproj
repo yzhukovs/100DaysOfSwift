@@ -13,10 +13,10 @@
 		44C4256E2373C1070045E477 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44C4256D2373C1070045E477 /* Assets.xcassets */; };
 		44C425712373C1070045E477 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44C425702373C1070045E477 /* Preview Assets.xcassets */; };
 		44C425742373C1070045E477 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44C425722373C1070045E477 /* LaunchScreen.storyboard */; };
-		44C4257D2373C2CC0045E477 /* missions.json in Resources */ = {isa = PBXBuildFile; fileRef = 44C4257B2373C2CC0045E477 /* missions.json */; };
-		44C4257E2373C2CC0045E477 /* astronauts.json in Resources */ = {isa = PBXBuildFile; fileRef = 44C4257C2373C2CC0045E477 /* astronauts.json */; };
 		44C425802373C33E0045E477 /* Astronauts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C4257F2373C33E0045E477 /* Astronauts.swift */; };
 		44C425822373C3A60045E477 /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C425812373C3A60045E477 /* Bundle-Decodable.swift */; };
+		44C425842373C7300045E477 /* astronauts.json in Resources */ = {isa = PBXBuildFile; fileRef = 44C425832373C7300045E477 /* astronauts.json */; };
+		44C425862373C74F0045E477 /* missions.json in Resources */ = {isa = PBXBuildFile; fileRef = 44C425852373C74F0045E477 /* missions.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,10 +28,10 @@
 		44C425702373C1070045E477 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		44C425732373C1070045E477 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		44C425752373C1070045E477 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		44C4257B2373C2CC0045E477 /* missions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = missions.json; sourceTree = SOURCE_ROOT; };
-		44C4257C2373C2CC0045E477 /* astronauts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = astronauts.json; sourceTree = SOURCE_ROOT; };
 		44C4257F2373C33E0045E477 /* Astronauts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Astronauts.swift; sourceTree = "<group>"; };
 		44C425812373C3A60045E477 /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
+		44C425832373C7300045E477 /* astronauts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = astronauts.json; sourceTree = "<group>"; };
+		44C425852373C74F0045E477 /* missions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = missions.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,8 +69,8 @@
 				44C4256B2373C1030045E477 /* ContentView.swift */,
 				44C4257F2373C33E0045E477 /* Astronauts.swift */,
 				44C425812373C3A60045E477 /* Bundle-Decodable.swift */,
-				44C4257C2373C2CC0045E477 /* astronauts.json */,
-				44C4257B2373C2CC0045E477 /* missions.json */,
+				44C425832373C7300045E477 /* astronauts.json */,
+				44C425852373C74F0045E477 /* missions.json */,
 				44C4256D2373C1070045E477 /* Assets.xcassets */,
 				44C425722373C1070045E477 /* LaunchScreen.storyboard */,
 				44C425752373C1070045E477 /* Info.plist */,
@@ -146,9 +146,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				44C425742373C1070045E477 /* LaunchScreen.storyboard in Resources */,
+				44C425862373C74F0045E477 /* missions.json in Resources */,
 				44C425712373C1070045E477 /* Preview Assets.xcassets in Resources */,
-				44C4257D2373C2CC0045E477 /* missions.json in Resources */,
-				44C4257E2373C2CC0045E477 /* astronauts.json in Resources */,
+				44C425842373C7300045E477 /* astronauts.json in Resources */,
 				44C4256E2373C1070045E477 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
