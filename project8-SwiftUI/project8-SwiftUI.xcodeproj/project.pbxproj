@@ -50,7 +50,6 @@
 		44C4255B2373C1030045E477 = {
 			isa = PBXGroup;
 			children = (
-				44C425872373C8CC0045E477 /* Mission.swift */,
 				44C425662373C1030045E477 /* project8-SwiftUI */,
 				44C425652373C1030045E477 /* Products */,
 			);
@@ -71,6 +70,7 @@
 				44C425692373C1030045E477 /* SceneDelegate.swift */,
 				44C4256B2373C1030045E477 /* ContentView.swift */,
 				44C4257F2373C33E0045E477 /* Astronauts.swift */,
+				44C425872373C8CC0045E477 /* Mission.swift */,
 				44C425812373C3A60045E477 /* Bundle-Decodable.swift */,
 				44C425832373C7300045E477 /* astronauts.json */,
 				44C425852373C74F0045E477 /* missions.json */,
