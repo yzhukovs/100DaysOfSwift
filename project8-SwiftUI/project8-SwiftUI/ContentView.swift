@@ -16,9 +16,16 @@ struct ContentView: View {
             List(missions) { mission in
                 NavigationLink(destination: Text("DetailView")) {
                     Image(mission.image)
-                
-            }
-        }
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 44, height: 44 )
+                    VStack(alignment: .leading) {
+                        Text(mission.displayName)
+                            .font(.headline)
+                        Text(mission.formatterLaunchDate)
+                    }
+                }
+                } .navigationBarTitle("Moonshot")
     }
   }
 }
