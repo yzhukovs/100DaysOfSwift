@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4488CFCA237922700038D397 /* MissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4488CFC92379226F0038D397 /* MissionView.swift */; };
+		4488CFCE237A2B100038D397 /* AstronautView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4488CFCD237A2B100038D397 /* AstronautView.swift */; };
 		44C425682373C1030045E477 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C425672373C1030045E477 /* AppDelegate.swift */; };
 		44C4256A2373C1030045E477 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C425692373C1030045E477 /* SceneDelegate.swift */; };
 		44C4256C2373C1030045E477 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C4256B2373C1030045E477 /* ContentView.swift */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		4488CFC92379226F0038D397 /* MissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionView.swift; sourceTree = "<group>"; };
+		4488CFCD237A2B100038D397 /* AstronautView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautView.swift; sourceTree = "<group>"; };
 		44C425642373C1030045E477 /* project8-SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "project8-SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		44C425672373C1030045E477 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44C425692373C1030045E477 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				44C425692373C1030045E477 /* SceneDelegate.swift */,
 				44C4256B2373C1030045E477 /* ContentView.swift */,
 				44C4257F2373C33E0045E477 /* Astronauts.swift */,
+				4488CFCD237A2B100038D397 /* AstronautView.swift */,
 				44C425872373C8CC0045E477 /* Mission.swift */,
 				4488CFC92379226F0038D397 /* MissionView.swift */,
 				44C425812373C3A60045E477 /* Bundle-Decodable.swift */,
@@ -168,6 +171,7 @@
 			files = (
 				4488CFCA237922700038D397 /* MissionView.swift in Sources */,
 				44C425882373C8CC0045E477 /* Mission.swift in Sources */,
+				4488CFCE237A2B100038D397 /* AstronautView.swift in Sources */,
 				44C425682373C1030045E477 /* AppDelegate.swift in Sources */,
 				44C4256A2373C1030045E477 /* SceneDelegate.swift in Sources */,
 				44C425822373C3A60045E477 /* Bundle-Decodable.swift in Sources */,
