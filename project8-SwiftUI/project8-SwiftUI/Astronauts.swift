@@ -12,5 +12,16 @@ struct Astronaut: Codable, Identifiable {
     let id: String
     let name: String
     let description: String
+    
+   
+    
+    func wasInMissions(missions: [Mission]) -> [Mission] {
+        return missions.filter { $0.hasAstronaut(a: self)
+            
+        }
+    }
+        
+    
+       
 }
 

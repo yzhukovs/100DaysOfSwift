@@ -10,6 +10,7 @@ import Foundation
 
 
 
+
 struct Mission: Codable, Identifiable {
     struct CrewRole: Codable {
         let name: String
@@ -21,6 +22,15 @@ struct Mission: Codable, Identifiable {
     let crew: [CrewRole]
     let description: String
     
+    func hasAstronaut(a: Astronaut) -> Bool {
+        for i in crew {
+            NSLog("i.name = \(i.name), a.id = \(a.id)")
+            if i.name == a.id {
+                return true
+            }
+        }
+        return false
+    }
     
     var displayName: String {
         "Apollo \(id)"
