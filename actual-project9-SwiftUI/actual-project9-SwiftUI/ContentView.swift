@@ -8,6 +8,25 @@
 
 import SwiftUI
 
+struct Spirograph: Shape {
+    let innerRadius: Int
+    let outerRadius: Int
+    let distance: Int
+    let amount: CGFloat
+    
+    func path(in rect: CGRect) -> Path {
+        let path = Path()
+        
+        
+        
+        
+        
+        return path
+    }
+    
+    
+}
+
 struct ContentView: View {
     var body: some View {
         Text("Hello, World!")
