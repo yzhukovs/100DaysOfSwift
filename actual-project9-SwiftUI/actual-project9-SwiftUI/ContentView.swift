@@ -14,6 +14,19 @@ struct Spirograph: Shape {
     let distance: Int
     let amount: CGFloat
     
+    
+    func gcd(_ a: Int, _ b: Int)-> Int {
+        var a = a
+        var b = b
+         
+        while b != 0 {
+            let temp = b
+            b = a % b
+            a = temp
+        }
+        return a
+    }
+    
     func path(in rect: CGRect) -> Path {
         let path = Path()
         
