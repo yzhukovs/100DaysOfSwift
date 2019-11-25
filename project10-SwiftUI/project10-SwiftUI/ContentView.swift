@@ -66,6 +66,12 @@ struct ContentView: View {
                         }
                     }
                     
+                Section {
+                    NavigationLink(destination: AddressView(order: order)) {
+                        Text("Delivery Details")
+                    }
+                    
+                }
                 
             }
         .navigationBarTitle("Cupcake corner")
