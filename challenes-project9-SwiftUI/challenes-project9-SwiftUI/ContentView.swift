@@ -23,17 +23,45 @@ struct Triangle: Shape {
 
 
 struct ContentView: View {
+    @State private var lineWidth: CGFloat = 10
     var body: some View {
         VStack {
         Triangle()
-            .fill(Color.blue)
-            .frame(width: 300, height: 300)
+            .stroke(Color.blue, style: StrokeStyle(lineWidth: lineWidth, lineCap: .round, lineJoin: .round))
+        .frame(width: 300, height: 250)
+            .onTapGesture {
+                withAnimation {
+                    self.lineWidth = CGFloat.random(in: 1...20)
+        }
+        }
+        
+        
+            //.animation(.basic(duration: 2, curve: .linear))
+            //.fill(Color.blue)
+            
+           
         
         Rectangle()
-            .fill(Color.blue)
-            .frame(width: 100, height: 400)
+            
+                
+                 .strokeBorder(Color.blue, lineWidth:lineWidth)
+            .animation(.easeInOut)
+        
+       
+           // .fill(Color.blue)
+            .frame(width: 100, height: 350)
+            .onTapGesture {
+                    withAnimation {
+                        self.lineWidth = CGFloat.random(in: 1...20)
+            }
+            }
+            
+            
         }
+        
+        
     }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
