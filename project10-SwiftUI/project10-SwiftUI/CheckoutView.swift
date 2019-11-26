@@ -12,6 +12,7 @@ struct CheckoutView: View {
     @ObservedObject var order: Order
     @State private var confirmationMessage = ""
     @State private var showingConfirmation = false
+    @State private var titleText = ""
     var body: some View {
         GeometryReader { geo in
             ScrollView {
@@ -33,7 +34,7 @@ struct CheckoutView: View {
         }
         .navigationBarTitle("Check Out", displayMode: .inline)
         .alert(isPresented: $showingConfirmation) {
-            Alert(title: Text("Thank you!"), message: Text(confirmationMessage), dismissButton: .default(Text("OK!")))
+            Alert(title: Text(titleText), message: Text(confirmationMessage), dismissButton: .default(Text("OK!")))
         }
     }
     func placeOrder() {
@@ -49,11 +50,14 @@ struct CheckoutView: View {
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data else {
-                print("No data in response\(error?.localizedDescription ?? "Unknown error").")
+               self.confirmationMessage = "There is no internet connection, please try again"
+                self.showingConfirmation = true
+                self.titleText = "❌No Connection❌"
                 return
             }
             if let decodedOrder = try? JSONDecoder().decode(Order.self, from: data) {
                 self.confirmationMessage = "Your order for \(decodedOrder.quantity) x \(Order.types[decodedOrder.type].lowercased()) cupcakes is on it's way"
+                self.titleText = "Thank you!"
                 self.showingConfirmation = true
             } else {
                 print("Invalid response from the server")
