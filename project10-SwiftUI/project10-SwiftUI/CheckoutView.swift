@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct CheckoutView: View {
-    @ObservedObject var order: Order
+    @ObservedObject var container: Container
     @State private var confirmationMessage = ""
     @State private var showingConfirmation = false
     @State private var titleText = ""
@@ -22,7 +22,7 @@ struct CheckoutView: View {
                         .scaledToFit()
                         .frame(width: geo.size.width)
                     
-                    Text("Your total is: $\(self.order.cost, specifier: "%2.f")")
+                    Text("Your total is: $\(self.container.order.cost, specifier: "%2.f")")
                         .font(.title)
                     Button("Place order") {
                         //Place the order
@@ -38,7 +38,7 @@ struct CheckoutView: View {
         }
     }
     func placeOrder() {
-        guard let encoded = try? JSONEncoder().encode(order) else {
+        guard let encoded = try? JSONEncoder().encode(container.order) else {
             print("failed to encode order")
             return
         }
@@ -56,7 +56,7 @@ struct CheckoutView: View {
                 return
             }
             if let decodedOrder = try? JSONDecoder().decode(Order.self, from: data) {
-                self.confirmationMessage = "Your order for \(decodedOrder.quantity) x \(Order.types[decodedOrder.type].lowercased()) cupcakes is on it's way"
+                self.confirmationMessage = "Your order for \(decodedOrder.quantity) x \(Order().types[decodedOrder.type].lowercased()) cupcakes is on it's way"
                 self.titleText = "Thank you!"
                 self.showingConfirmation = true
             } else {
@@ -69,7 +69,8 @@ struct CheckoutView: View {
     
 }
 struct CheckoutView_Previews: PreviewProvider {
+    
     static var previews: some View {
-        CheckoutView(order: Order())
+        CheckoutView(container: Container())
     }
 }
