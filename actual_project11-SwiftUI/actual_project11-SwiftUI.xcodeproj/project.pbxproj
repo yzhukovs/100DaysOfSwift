@@ -16,6 +16,7 @@
 		444258022392223300F78D43 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 444258002392223300F78D43 /* LaunchScreen.storyboard */; };
 		4442580A2393136700F78D43 /* AddBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444258092393136700F78D43 /* AddBookView.swift */; };
 		4442580C23936A6400F78D43 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4442580B23936A6400F78D43 /* RatingView.swift */; };
+		4442580E23936F4B00F78D43 /* EmojiRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4442580D23936F4B00F78D43 /* EmojiRatingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		444258032392223300F78D43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		444258092393136700F78D43 /* AddBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookView.swift; sourceTree = "<group>"; };
 		4442580B23936A6400F78D43 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
+		4442580D23936F4B00F78D43 /* EmojiRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiRatingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				444257F22392223000F78D43 /* AppDelegate.swift */,
 				444257F42392223000F78D43 /* SceneDelegate.swift */,
 				4442580B23936A6400F78D43 /* RatingView.swift */,
+				4442580D23936F4B00F78D43 /* EmojiRatingView.swift */,
 				444257F92392223000F78D43 /* ContentView.swift */,
 				444257FB2392223300F78D43 /* Assets.xcassets */,
 				444258002392223300F78D43 /* LaunchScreen.storyboard */,
@@ -157,6 +160,7 @@
 			files = (
 				444257F82392223000F78D43 /* actual_project11_SwiftUI.xcdatamodeld in Sources */,
 				444257F32392223000F78D43 /* AppDelegate.swift in Sources */,
+				4442580E23936F4B00F78D43 /* EmojiRatingView.swift in Sources */,
 				444257FA2392223000F78D43 /* ContentView.swift in Sources */,
 				4442580C23936A6400F78D43 /* RatingView.swift in Sources */,
 				444257F52392223000F78D43 /* SceneDelegate.swift in Sources */,
