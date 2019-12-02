@@ -37,6 +37,8 @@ struct DetailView: View {
                     .foregroundColor(.secondary)
                 Text(self.book.review ?? "No review")
                 .padding()
+                Text(self.dateFormatTime(date: self.book.date ?? Date()))
+                .padding()
                 RatingView(rating: .constant(Int(self.book.rating)))
                     .font(.largeTitle)
                 Spacer()
@@ -59,6 +61,11 @@ struct DetailView: View {
         presentationMode.wrappedValue.dismiss()
     }
     
+   func dateFormatTime(date : Date) -> String {
+       let dateFormatter = DateFormatter()
+       dateFormatter.dateFormat = "dd MMM, yyyy hh:mm"
+       return dateFormatter.string(from: date)
+   }
 }
 
 struct DetailView_Previews: PreviewProvider {
