@@ -24,6 +24,7 @@ struct ContentView: View {
                         VStack(alignment: .leading) {
                           Text(book.title ?? "Unknown title")
                             .font(.headline)
+                            .foregroundColor(book.rating == 1 ? Color.red : Color.black)
                             Text(book.author ?? "Unknown author")
                                 .foregroundColor(.secondary)
                         }
@@ -52,6 +53,8 @@ struct ContentView: View {
                }
                try? moc.save()
            }
+    
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
