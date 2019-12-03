@@ -15,7 +15,7 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            FilteredList(filterKey: "lastname", filterValue: lastNameFilter) { (singer:Singer) in
+            FilteredList(sortKey: \Singer.lastname,  filterKey: "lastname", filterValue: lastNameFilter) { (singer:Singer) in
                 Text("\(singer.wrappedFirstName), \(singer.wrappedLastName)")
                 
             }
