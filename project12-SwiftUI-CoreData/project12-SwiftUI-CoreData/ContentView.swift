@@ -15,10 +15,14 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            FilteredList(sortKey: \Singer.lastname,  filterKey: "lastname", filterValue: lastNameFilter) { (singer:Singer) in
-                Text("\(singer.wrappedFirstName), \(singer.wrappedLastName)")
+            FilteredList(filterKey: "lastname", predicate: Predicate.beginsWith.rawValue, filterValue: lastNameFilter, sortKey: \Singer.lastname)  { (singer:Singer) in
+                            Text("\(singer.wrappedFirstName), \(singer.wrappedLastName)")
+                            
+                        }
+            //            FilteredList(sortKey: \Singer.lastname,  filterKey: "lastname", predicate: <#Predicate.RawValue#>, filterValue: lastNameFilter) { (singer:Singer) in
+//                Text("\(singer.wrappedFirstName), \(singer.wrappedLastName)")
                 
-            }
+            
           // List of singers
         
         Button("Add Examples") {
@@ -33,7 +37,11 @@ struct ContentView: View {
             let adele = Singer(context: self.moc)
             adele.firstname = "Adele"
             adele.lastname = "Adkins"
-
+            
+            let axl = Singer(context: self.moc)
+            axl.firstname = "Axl"
+            axl.lastname = "Rose"
+            
             try? self.moc.save()
         }
             Button("Show A") {
@@ -42,6 +50,9 @@ struct ContentView: View {
             Button("Show S") {
                 self.lastNameFilter = "S"
             }
+            Button("Show R") {
+                self.lastNameFilter = "R"
+                       }
     }
     }
 }
