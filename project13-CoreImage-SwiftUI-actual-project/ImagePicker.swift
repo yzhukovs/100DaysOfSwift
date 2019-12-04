@@ -21,7 +21,6 @@ struct ImagePicker: UIViewControllerRepresentable  {
             }
             parent.presentationMode.wrappedValue.dismiss()
         }
-        
     }
     
     @Binding var image: UIImage?
@@ -39,6 +38,4 @@ struct ImagePicker: UIViewControllerRepresentable  {
     func updateUIViewController(_ uiViewController: UIImagePickerController, context: UIViewControllerRepresentableContext<ImagePicker>) {
         
     }
-    
-    
 }
