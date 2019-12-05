@@ -18,6 +18,7 @@ struct ContentView: View {
     @State private var processedImage: UIImage?
     @State private var currentFilter: CIFilter = CIFilter.sepiaTone()
     @State private var isThereImage = false
+    @State private var buttonName = "Change Filter"
     let context = CIContext()
     
     var body: some View {
@@ -26,10 +27,8 @@ struct ContentView: View {
             set: { self.filterIntensity = $0
                    self.applyProcessing()
         }
-        
         )
-        
-        
+
        return NavigationView {
             VStack {
                 ZStack {
@@ -56,7 +55,7 @@ struct ContentView: View {
                 .padding(.vertical)
                 
                 HStack {
-                    Button("Change Filter"){
+                    Button(self.buttonName){
                         self.showingFilterSheet = true
                     }
                     Spacer()
@@ -89,18 +88,25 @@ struct ContentView: View {
             .actionSheet(isPresented: $showingFilterSheet) {
                 ActionSheet(title: Text("Select a filter"), buttons: [
                     .default(Text("Crystalize")) {
+                        self.buttonName = "Crystalize"
                         self.setFilter(CIFilter.crystallize())},
                     .default(Text("Edges")) {
+                        self.buttonName = "Edges"
                     self.setFilter(CIFilter.edges())},
                     .default(Text("Gaussian Blur")) {
+                        self.buttonName = "Gaussian Blur"
                     self.setFilter(CIFilter.gaussianBlur())},
                     .default(Text("Pixellete")) {
+                        self.buttonName = "Pixellete"
                     self.setFilter(CIFilter.pixellate())},
                     .default(Text("Sepiatone")) {
+                        self.buttonName = "Sepiatone"
                     self.setFilter(CIFilter.sepiaTone())},
                     .default(Text("Unsharp Mask")) {
+                        self.buttonName = "Unsharp Mask"
                     self.setFilter(CIFilter.unsharpMask())},
                     .default(Text("Vignette")) {
+                        self.buttonName = "Vignette"
                     self.setFilter(CIFilter.vignette())},
                     .cancel()
                     
