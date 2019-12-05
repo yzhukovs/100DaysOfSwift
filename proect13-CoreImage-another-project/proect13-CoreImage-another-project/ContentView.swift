@@ -17,6 +17,7 @@ struct ContentView: View {
     @State private var inputImage: UIImage?
     @State private var processedImage: UIImage?
     @State private var currentFilter: CIFilter = CIFilter.sepiaTone()
+    @State private var isThereImage = false
     let context = CIContext()
     
     var body: some View {
@@ -60,6 +61,9 @@ struct ContentView: View {
                     }
                     Spacer()
                     Button("Save") {
+                        if self.processedImage == nil {
+                            self.isThereImage = true
+                        }
                         guard let processedImage = self.processedImage else {return}
                         let imageSaver = ImageSaver()
                         imageSaver.successHandler = {
@@ -69,6 +73,11 @@ struct ContentView: View {
                             print("Oops: \($0.localizedDescription)")
                         }
                         imageSaver.writeToPhotoAlbum(image: processedImage)
+                       
+                        
+                    }
+                    .alert(isPresented: $isThereImage) {
+                    Alert(title: Text("⚠️ Alert"), message: Text("Please pick an Image first"), dismissButton: .destructive(Text("OK")))
                     }
                 }
             }
