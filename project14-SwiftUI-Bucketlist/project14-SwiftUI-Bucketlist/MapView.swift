@@ -10,6 +10,9 @@ import SwiftUI
 
 struct MapView: UIViewRepresentable {
     @Binding var centerCoordinate: CLLocationCoordinate2D
+    @Binding var selectedPlace: MKPointAnnotation?
+    @Binding var showingPlaceDetails: Bool
+    
     var annotations: [MKPointAnnotation]
     func makeCoordinator() -> Coordinator {
         Coordinator(self)
@@ -20,8 +23,6 @@ struct MapView: UIViewRepresentable {
             view.removeAnnotations(view.annotations)
             view.addAnnotations(annotations)
         }
-        
-        
     }
     
     class Coordinator: NSObject, MKMapViewDelegate {
@@ -31,15 +32,30 @@ struct MapView: UIViewRepresentable {
             self.parent = parent
         }
         
+        func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+            guard let placemark = view.annotation as? MKPointAnnotation else {return}
+            parent.selectedPlace = placemark
+            parent.showingPlaceDetails = true
+        }
+        
         func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
             parent.centerCoordinate = mapView.centerCoordinate
             print(mapView.centerCoordinate)
         }
         func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation)-> MKAnnotationView? {
-            let view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: nil)
-            view.canShowCallout = true
-            return view
+            let identifier = "Placemark"
+            let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+            if annotationView == nil {
+            let annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+                 annotationView.canShowCallout = true
+                annotationView.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+            } else {
+                annotationView?.annotation = annotation
+            }
+           
+            return annotationView
         }
+        
         
        
     
@@ -66,6 +82,6 @@ extension MKPointAnnotation {
 
 struct MapView_Previews: PreviewProvider {
     static var previews: some View {
-        MapView(centerCoordinate: .constant(MKPointAnnotation.example.coordinate), annotations: [MKPointAnnotation.example])
+        MapView(centerCoordinate: .constant(MKPointAnnotation.example.coordinate), selectedPlace: .constant(MKPointAnnotation.example), showingPlaceDetails: .constant(false), annotations: [MKPointAnnotation.example])
     }
 }
