@@ -1,0 +1,31 @@
+//
+//  FileManager-Decodable.swift
+//  project14-SwiftUI-Bucketlist
+//
+//  Created by Yvette Zhukovsky on 12/5/19.
+//  Copyright © 2019 bumnetworks. All rights reserved.
+//
+
+//import Foundation
+//extension FileManager {
+//    
+//    func decode<T: Codable>(_ file: String) -> T{
+//        guard let url = self.default.urls(for: file, in: nil) else {
+//            fatalError("Failed to locate \(file) in bundle")
+//        }
+//        
+//        guard let data = try? Data(contentsOf: url) else {
+//            fatalError("Failed to load \(file) from bundle")
+//        }
+//        let decoder = JSONDecoder()
+//        let formatter = DateFormatter()
+//        formatter.dateFormat = "y-MM-dd"
+//        decoder.dateDecodingStrategy = .formatted(formatter)
+//        guard let loaded = try? decoder.decode(T.self, from: data) else {
+//            fatalError("Failed to decode \(file) from bundle")
+//        }
+//        
+//        return loaded
+//    }
+//    
+//}
