@@ -1,0 +1,26 @@
+//
+//  Result.swift
+//  project14-SwiftUI-Bucketlist
+//
+//  Created by Yvette Zhukovsky on 12/6/19.
+//  Copyright © 2019 bumnetworks. All rights reserved.
+//
+
+import Foundation
+
+struct Result: Codable {
+    let query: Query
+}
+
+struct Query: Codable {
+    let pages: [Int: Page]
+}
+struct Page: Codable, Comparable {
+    static func < (lhs: Page, rhs: Page) -> Bool {
+        lhs.title < rhs.title
+    }
+    
+    let pageid: Int
+    let title: String
+    let terms: [String: [String]]?
+}
