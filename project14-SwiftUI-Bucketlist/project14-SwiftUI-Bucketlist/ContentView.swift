@@ -18,37 +18,50 @@ struct ContentView: View {
     @State private var showingEditScreen = false
     @State private var isUnlocked = false
     
+    var mapView: some View {
+         MapView(centerCoordinate: $centerCoordinate,selectedPlace: $selectedPlace, showingPlaceDetails: $showingPlaceDetails, annotations: locations)
+        .edgesIgnoringSafeArea(.all)
+    }
+    
+    var circle: some View {
+        Circle()
+        .fill(Color.blue)
+        .opacity(0.3)
+        .frame(width: 32, height: 32)
+    }
+    
+    var button: some View {
+        Button(action: {
+            //Create a new location
+            let newLocation = CodableMKPointAnnotation()
+            newLocation.title = "Example Location"
+            newLocation.coordinate = self.centerCoordinate
+            self.locations.append(newLocation)
+            self.selectedPlace = newLocation
+            self.showingEditScreen = true
+            
+        })
+        {
+            Image(systemName: "plus")
+                            .padding()
+                           .background(Color.black.opacity(0.75))
+                           .foregroundColor(.white)
+                           .font(.title)
+                           .clipShape(Circle())
+                           .padding(.trailing)
+        }
+    }
+    
     var body: some View {
         ZStack {
             if isUnlocked {
-            MapView(centerCoordinate: $centerCoordinate,selectedPlace: $selectedPlace, showingPlaceDetails: $showingPlaceDetails, annotations: locations)
-                .edgesIgnoringSafeArea(.all)
-                Circle()
-                    .fill(Color.blue)
-                    .opacity(0.3)
-                    .frame(width: 32, height: 32)
+            mapView
+            circle
             VStack {
                 Spacer()
                 HStack {
                     Spacer()
-                    Button(action: {
-                        //Create a new location
-                        let newLocation = CodableMKPointAnnotation()
-                        newLocation.title = "Example Location"
-                        newLocation.coordinate = self.centerCoordinate
-                        self.locations.append(newLocation)
-                        self.selectedPlace = newLocation
-                        self.showingEditScreen = true
-                        
-                    }) {
-                        Image(systemName: "plus")
-                                        .padding()
-                                       .background(Color.black.opacity(0.75))
-                                       .foregroundColor(.white)
-                                       .font(.title)
-                                       .clipShape(Circle())
-                                       .padding(.trailing)
-                    }
+                    button
                
                 }
             }
