@@ -66,6 +66,8 @@ struct DetailView: View {
        dateFormatter.dateFormat = "dd MMM, yyyy hh:mm"
        return dateFormatter.string(from: date)
    }
+    
+    
 }
 
 struct DetailView_Previews: PreviewProvider {

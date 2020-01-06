@@ -9,6 +9,9 @@ import LocalAuthentication
 import SwiftUI
 import MapKit
 
+enum ActiveAlert {
+    case first, second, third
+}
 
 struct ContentView: View {
     @State private var centerCoordinate = CLLocationCoordinate2D()
@@ -17,6 +20,7 @@ struct ContentView: View {
     @State private var showingPlaceDetails = false
     @State private var showingEditScreen = false
     @State private var isUnlocked = false
+    @State private var activeAlert: ActiveAlert = .first
     
     var mapView: some View {
          MapView(centerCoordinate: $centerCoordinate,selectedPlace: $selectedPlace, showingPlaceDetails: $showingPlaceDetails, annotations: locations)
@@ -77,11 +81,18 @@ struct ContentView: View {
             }
         }
         
-        .alert(isPresented: $showingPlaceDetails) {
-            Alert(title: Text(selectedPlace?.title ?? "Unknown"), message: Text(selectedPlace?.subtitle ?? "Missing place Information"), primaryButton: .default(Text("OK!")), secondaryButton: .default(Text("Edit")){
-                self.showingEditScreen = true
-                })
-        }
+        
+        return showAlert(title: selectedPlace?.title ?? "Unknown", msg: selectedPlace?.title ?? "Unknown", primarybtn: "OK!", secndButton: "Edit", binding: $showingPlaceDetails, completion: {_ in
+            self.showingEditScreen = true
+        })
+                
+//            .alert(isPresented: $showingPlaceDetails) {
+//                Alert(title: Text(selectedPlace?.title ?? "Unknown"), message: Text(selectedPlace?.subtitle ?? "Missing place Information"), primaryButton: .default(Text("OK!")), secondaryButton: .default(Text("Edit")){
+//                    self.showingEditScreen = true
+//                    })
+//            }
+         
+        
         .sheet(isPresented: $showingEditScreen, onDismiss: saveData ) {
             if self.selectedPlace != nil {
                 EditView(placemark: self.selectedPlace!)
@@ -126,7 +137,7 @@ struct ContentView: View {
                 if success {
                     self.isUnlocked = true
                 } else {
-                    //error
+                    self.isUnlocked = false
                 }
             
             }
@@ -135,8 +146,18 @@ struct ContentView: View {
             //no biometry
         }
     }
-}
-
+    
+//    func showAlert(title:String, msg: String, primarybtn: String, secndButton: String, binding: Binding<Bool>, completion: (bind: Binding<Bool>)-> Void) -> some View {
+//         return self.alert(isPresented: binding) {
+//            Alert(title: Text(title), message: Text(msg), primaryButton: .default(Text(primarybtn)), secondaryButton: .default(Text(secndButton)){
+//                
+//                
+//                })
+//        }
+//    }
+//    
+//}
+//
 
 //struct ContentView: View {
 //    @State private var isUnlocked = true
