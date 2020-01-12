@@ -16,6 +16,7 @@
 		44A21A5523C2F4180088F386 /* SamplePackage in Frameworks */ = {isa = PBXBuildFile; productRef = 44A21A5423C2F4180088F386 /* SamplePackage */; };
 		44A21A5723C2FBE20088F386 /* ProspectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A21A5623C2FBE20088F386 /* ProspectsView.swift */; };
 		44A21A5923C2FBF60088F386 /* MeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A21A5823C2FBF60088F386 /* MeView.swift */; };
+		44A21A5B23CADBFD0088F386 /* Prospect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A21A5A23CADBFD0088F386 /* Prospect.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		44A21A4D23C19E7C0088F386 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		44A21A5623C2FBE20088F386 /* ProspectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProspectsView.swift; sourceTree = "<group>"; };
 		44A21A5823C2FBF60088F386 /* MeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeView.swift; sourceTree = "<group>"; };
+		44A21A5A23CADBFD0088F386 /* Prospect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prospect.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				44A21A4123C19E760088F386 /* SceneDelegate.swift */,
 				44A21A4323C19E760088F386 /* ContentView.swift */,
 				44A21A5623C2FBE20088F386 /* ProspectsView.swift */,
+				44A21A5A23CADBFD0088F386 /* Prospect.swift */,
 				44A21A5823C2FBF60088F386 /* MeView.swift */,
 				44A21A4523C19E7C0088F386 /* Assets.xcassets */,
 				44A21A4A23C19E7C0088F386 /* LaunchScreen.storyboard */,
@@ -161,6 +164,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				44A21A5723C2FBE20088F386 /* ProspectsView.swift in Sources */,
+				44A21A5B23CADBFD0088F386 /* Prospect.swift in Sources */,
 				44A21A4023C19E760088F386 /* AppDelegate.swift in Sources */,
 				44A21A4223C19E760088F386 /* SceneDelegate.swift in Sources */,
 				44A21A4423C19E760088F386 /* ContentView.swift in Sources */,

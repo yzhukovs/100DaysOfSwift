@@ -29,6 +29,7 @@ import SamplePackage
 
 
 struct ContentView: View {
+    var prospects = Prospects()
     //    let possibleNumbers = Array(1...60)
     //    var results: String {
     //        let selected = possibleNumbers.random(7).sorted()
@@ -61,6 +62,7 @@ struct ContentView: View {
             }
             
         }
+    .environmentObject(prospects)
         
         
         //        VStack {
