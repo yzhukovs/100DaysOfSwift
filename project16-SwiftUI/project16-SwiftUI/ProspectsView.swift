@@ -52,7 +52,7 @@ struct ProspectsView: View {
                 }
             }
             .navigationBarTitle(title)
-                .navigationBarItems(trailing: Button(action: {
+            .navigationBarItems(trailing: Button(action: {
                     self.isShowingScanner = true
                 }){
                     Image(systemName: "qrcode.viewfinder")
@@ -60,7 +60,28 @@ struct ProspectsView: View {
                     
                     })
     }
+        .sheet(isPresented: $isShowingScanner) {
+            CodeScannerView(codeTypes: [.qr], simulatedData: "Yvette Zhukovsky \nyzhukovs@bumnetworks.com", completion: self.handleScan)
+        }
 }
+    
+    func handleScan(result: Result<String, CodeScannerView.ScanError>) {
+        self.isShowingScanner = false
+        switch result {
+        case .success(let code):
+            let details = code.components(separatedBy: "\n")
+            guard details.count == 2 else {return}
+            let person = Prospect()
+            person.name = details[0]
+            person.emailAddress = details[1]
+            self.prospects.people.append(person)
+            
+        case .failure(let error):
+            print("Scanning failed \(error)")
+            
+        }
+        
+    }
 }
 struct ProspectsView_Previews: PreviewProvider {
     static var previews: some View {
