@@ -7,9 +7,12 @@
 //
 
 import SwiftUI
+import CodeScanner
 
 struct ProspectsView: View {
     @EnvironmentObject var prospects: Prospects
+    @State private var isShowingScanner = false
+    
     let filter: FilterType
     enum FilterType {
         case none, contacted, uncontacted
@@ -50,10 +53,7 @@ struct ProspectsView: View {
             }
             .navigationBarTitle(title)
                 .navigationBarItems(trailing: Button(action: {
-                 let prospect = Prospect()
-                    prospect.name = "Paul Hudson"
-                    prospect.emailAddress = "paul@hackingwithswift.com"
-                    self.prospects.people.append(prospect)
+                    self.isShowingScanner = true
                 }){
                     Image(systemName: "qrcode.viewfinder")
                     Text("Scan")
